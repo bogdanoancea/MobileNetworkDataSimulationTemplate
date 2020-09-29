@@ -1,0 +1,6 @@
+"0","sim <- list(simConfig_dir = ""simdata/simConfig"","
+"0","            resources_dir = ""simdata/resources"","
+"0","            networkEvents_dir = ""simdata/networkEvents"","
+"0","            postLocProb_dir = ""simdata/postLocProb"","
+"0","            mno = ""MNO1"","
+"0","            crs = sf::st_crs(NA))"

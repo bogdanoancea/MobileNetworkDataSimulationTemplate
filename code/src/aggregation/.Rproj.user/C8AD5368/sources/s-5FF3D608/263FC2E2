@@ -1,0 +1,21 @@
+{
+    "id": "263FC2E2",
+    "path": "~/INE.Packages.v2/aggregation/R/aggregation.R",
+    "project_path": "R/aggregation.R",
+    "type": "r_source",
+    "hash": "2219211332",
+    "contents": "",
+    "dirty": false,
+    "created": 1601280281613.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {},
+    "folds": "",
+    "lastKnownWriteTime": 1595310623,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1595310623,
+    "read_only": false,
+    "read_only_alternatives": []
+}

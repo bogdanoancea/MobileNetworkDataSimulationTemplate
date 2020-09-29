@@ -1,0 +1,26 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 15,
+                "file" : "C:/Users/Administrador/Documents/INE.Packages.v2/destim/src/funique.cpp",
+                "kind" : 6,
+                "line" : 11,
+                "name" : "cppfunique(Rcpp::NumericMatrix, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cppfunique#I#d#"
+            },
+            {
+                "column" : 15,
+                "file" : "C:/Users/Administrador/Documents/INE.Packages.v2/destim/src/funique.cpp",
+                "kind" : 6,
+                "line" : 30,
+                "name" : "cppfuniqueind(Rcpp::NumericMatrix, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cppfuniqueind#I#d#"
+            }
+        ],
+        "file" : "C:/Users/Administrador/Documents/INE.Packages.v2/destim/src/funique.cpp",
+        "file_last_write" : 1573552372.000000
+    }
+]

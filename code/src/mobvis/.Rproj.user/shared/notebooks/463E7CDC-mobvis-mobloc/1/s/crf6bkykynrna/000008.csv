@@ -1,0 +1,8 @@
+"0","map_sig_strength(rst = ZL_raster, "
+"0","                 dt = ZL_strength, "
+"0","                 cp = ZL_cellplan, "
+"0","                 cells = ""BEE_150_N1"", "
+"0","                 region = ZL_muni, "
+"0","                 type = ""s"", "
+"0","                 interactive = FALSE, "
+"0","                 settings = mobvis_settings(use_classes = FALSE))"

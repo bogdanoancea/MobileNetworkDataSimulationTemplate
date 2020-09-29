@@ -1,0 +1,7 @@
+"0","dim(sstates(model, obs))"
+"1","[1]"
+"1"," 100"
+"1","   8"
+"1","
+"
+"0","image(matrix(sstates(model, obs)[,4], ncol = 10))"

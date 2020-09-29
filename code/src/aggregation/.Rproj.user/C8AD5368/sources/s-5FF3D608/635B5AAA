@@ -1,0 +1,24 @@
+{
+    "id": "635B5AAA",
+    "path": "G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/template/code/script/04-20.aggregate_OD.R",
+    "project_path": null,
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1600695502540.0,
+    "source_on_save": false,
+    "relative_order": 8,
+    "properties": {
+        "cursorPosition": "67,90",
+        "scrollLine": "44"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1600763212,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1600763213277,
+    "read_only": false,
+    "read_only_alternatives": []
+}

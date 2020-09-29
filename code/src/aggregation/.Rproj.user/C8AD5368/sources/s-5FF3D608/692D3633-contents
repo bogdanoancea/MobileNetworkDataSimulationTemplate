@@ -1,0 +1,6 @@
+fns <- list.files('inst/extdata', pattern = '.dt')
+for (fn in fns){
+  
+  new_fn <- gsub('dt.', '', fn)
+  file.rename(from = file.path('inst/extdata', fn), to = file.path('inst/extdata', new_fn))
+}

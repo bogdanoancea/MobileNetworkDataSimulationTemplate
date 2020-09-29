@@ -1,0 +1,7 @@
+"0","dim(scpstates(model, obs))"
+"1","[1]"
+"1"," 10000"
+"1","     7"
+"1","
+"
+"0","image(matrix(scpstates(model, obs)[,4], ncol = 100), xlim = c(0,1))"

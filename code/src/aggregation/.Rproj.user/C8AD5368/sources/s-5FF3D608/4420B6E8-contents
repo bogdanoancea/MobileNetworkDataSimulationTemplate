@@ -1,0 +1,12 @@
+doOD2_ <- function(ichunks, n, cellNames, time_increment, dedupProbs){
+  
+  NnetReg <- dedupProbs[time_from %in% ichunks][
+    , aggregation::rNnetJoint_Event(.SD, cellNames = cellNames, n=n ), by = 'time_from', .SDcols = names(dedupProbs)]
+return(NnetReg)  
+  x[
+      , time_to := time_from + time_increment][
+        , region_to := as.integer(region_to)][
+          , region_from := as.integer(region_from)]
+  setcolorder(NnetReg, c('time_from', 'time_to', 'region_from', 'region_to', 'Nnet', 'iter'))
+  return(NnetReg)
+}

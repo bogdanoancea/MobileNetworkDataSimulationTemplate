@@ -1,0 +1,48 @@
+"0","# set parameters"
+"0","ZL_param <- mobloc_param()"
+"0",""
+"0","# create environment layer (needed to calculate path loss exponent (ple))"
+"0","ZL_envir <- combine_raster_layers(ZL_landuse, weights = c(1, 1, 1, 0, 0))"
+"0",""
+"0","# validate cellplan"
+"0","ZL_cellplan <- validate_cellplan(ZL_cellplan, param = ZL_param, region = ZL_muni,"
+"0","    envir = ZL_envir, elevation = ZL_elevation)"
+"2","Variable 'W' is missing. These have been imputed with the parameters 'W' and 'W_small' for normal and small cells respectively.
+"
+"2","Variable 'range' is missing. These have been imputed with the parameters 'range' and 'range_small' for normal and small cells respectively.
+"
+"2","Path loss exponent ('ple') values updated with envir object
+"
+"2","The cellplan has been made valid
+"
+"0","# create raster"
+"0","ZL_bbox <- sf::st_bbox(c(xmin = 4012000, ymin = 3077000, xmax = 4048000, ymax = 3117000),"
+"0","    crs = sf::st_crs(3035))"
+"0","ZL_raster <- create_raster(ZL_bbox)"
+"0",""
+"0","# compute the signal strength model"
+"0","ZL_strength <- compute_sig_strength(cp = ZL_cellplan, raster = ZL_raster,"
+"0","    elevation = ZL_elevation, param = ZL_param)"
+"2","No parallel backend found, so procell_cellplan will run single threaded
+"
+"2","Determining coverage area per cell
+"
+"2","Determine signal strength per cell for raster tiles inside coverage area
+"
+"2","Creating data.frame and compute pag values
+"
+"0","# create likelihoods (event locations)"
+"0","ZL_strength_llh <- create_strength_llh(ZL_strength, param = ZL_param)"
+"0","ZL_voronoi_llh <- create_voronoi_llh(ZL_cellplan, ZL_raster)"
+"0",""
+"0","# create priors"
+"0","ZL_uniform_prior <- create_uniform_prior(ZL_raster)"
+"0","ZL_network_prior <- create_network_prior(ZL_strength, ZL_raster)"
+"0","ZL_landuse_prior <- create_prior(ZL_landuse, weights = c(1, 1, .1, 0, .5))"
+"0",""
+"0","# create composite prior: half network, half lansuse"
+"0","ZL_composite_prior <- create_prior(ZL_network_prior, ZL_landuse_prior, weights = c(0.5, 0.5))"
+"0",""
+"0","# caculate the posterior distributions"
+"0","ZL_posterior <- calculate_posterior(prior = ZL_composite_prior, "
+"0","    llh = ZL_strength_llh, raster = ZL_raster)"

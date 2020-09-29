@@ -1,0 +1,6 @@
+"0","map_pga(rst = ZL_raster,"
+"0","        dt = ZL_posterior,"
+"0","        cp = ZL_cellplan,"
+"0","        cells = ""BEE_150_N1"","
+"0","        region = ZL_muni,"
+"0","        interactive = FALSE)"
