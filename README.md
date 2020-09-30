@@ -1,4 +1,4 @@
-# Simulated Statistical Process with Mobile Network Data
+# Statistical Process with Simulated Mobile Network Data
 Data and code repository for an end-to-end statistical process with simulated mobile network data
 
 # Description
