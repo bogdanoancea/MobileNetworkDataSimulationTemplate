@@ -1,6 +1,6 @@
 ####  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ####
 ####                           SET PATHS                                    ####
-path_root         <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/template'
+path_root         <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/MobileNetworkDataSimulationTemplate'
 path_source       <- file.path(path_root, 'code/src')
 path_simConfig    <- file.path(path_root, 'data/simulatorConfig')
 path_events       <- file.path(path_root, 'data/networkEvents')
@@ -47,16 +47,17 @@ cellID <- 29
 devID <- 548
 
 
-rst <- sim_get_raster(sim)
-cp  <- sim_get_cellplan(sim)
-map <- sim_get_region(sim)
+rst      <- sim_get_raster(sim)
+cp       <- sim_get_cellplan(sim)
+map      <- sim_get_region(sim)
 strength <- sim_get_signal_strength(sim, rst, cp)[
   , dist:= NA]
+traj     <- sim_get_trajectory_data(sim, device = devID)
 
-param <- mobloc_param()
+
+param        <- mobloc_param()
 strength_llh <- create_strength_llh(strength, param = param)
 
-traj <- sim_get_trajectory_data(sim, device = devID)
 
 
 ####  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ####
@@ -75,9 +76,10 @@ map_pag(rst,
         settings = settings_plot)
 
 
+# Create the animation
 settings_anim <- mobvis_settings_animation()
 settings_anim$dev_color <- 'yellow'
-settings_anim$dev_csize <- 1.5
+settings_anim$dev_size <- 5
 animate_pag(rst,
             dt = strength_llh,
             traj = traj,
@@ -85,7 +87,7 @@ animate_pag(rst,
             region = map,
             settings = settings_anim,
             title = 'Event Location Probabilities',
-            filename = file.path(path_img, "event_location_dev_%s.mp4"),
+            filename = file.path(path_img, "eventLocProb_dev_%s.mp4"),
             width = 700,
             height = 700,
             fps = 3)
