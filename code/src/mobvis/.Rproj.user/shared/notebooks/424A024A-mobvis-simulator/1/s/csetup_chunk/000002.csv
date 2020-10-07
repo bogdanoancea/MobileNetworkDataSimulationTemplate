@@ -1,8 +1,4 @@
 "0","knitr::opts_chunk$set("
-"2","Warning message:
-"
-"2","replacing previous import ‘vctrs::data_frame’ by ‘tibble::data_frame’ when loading ‘dplyr’ 
-"
 "0","    collapse = TRUE,"
 "0","    fig.width=6, "
 "0","    fig.height=4,"

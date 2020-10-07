@@ -155,7 +155,17 @@ sim_devices_at_t <- function(sim, t) {
 #' @name sim_get_prob
 #' @rdname sim_data
 #' @export
-sim_get_prob <- function(sim, device, th = 1e-6) {
+sim_get_prob <- function(sim, device, rootfilename, th = 1e-6) {
+
+    filename <- file.path(sim$postLocProb_dir, paste0(rootfilename,".csv"))
+    p <- fread(filename)
+    setnames(p,
+           c('device', 'time', 'event_cellID', 'postLocProb'),
+           c('dev', 't', 'cell', 'p'))
+    p <- p[dev == device][, .(t, dev, tile, cell, p)]
+    return(p)
+
+
     p <- fread(file.path(sim$postLocProb_dir, paste0("probabilities_network_", sim$mno,".csv")))
     setnames(p, "Phone ID", "dev")
     psel <- p[dev %in% device, ] %>%
