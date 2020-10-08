@@ -24,5 +24,6 @@
 		<name>postLocProb</name>
 		<method>HMMRectangle</method>
 		<prior>network</prior>
+		<emission>RSS</emission>
 	</specs_prob>
 </posteriorLocationProbabilities>
