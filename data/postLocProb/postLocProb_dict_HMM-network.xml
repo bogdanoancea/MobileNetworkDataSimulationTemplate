@@ -21,9 +21,11 @@
 		<event_type>cellID</event_type>
 	</specs_event>
 	<specs_prob>
-		<name>postLocProb</name>
-		<method>HMMRectangle</method>
-		<prior>network</prior>
-		<emission>RSS</emission>
+        	<name>postLocProb</name>
+	        <method name = "HMM">
+					<prior>network</prior>
+					<transition>rectangle</transition>
+					<emission>RSS</emission>
+	        </method>
 	</specs_prob>
 </posteriorLocationProbabilities>
