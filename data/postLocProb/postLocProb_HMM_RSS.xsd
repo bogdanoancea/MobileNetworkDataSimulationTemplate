@@ -7,8 +7,8 @@
 			<xs:element name="specs_device">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="name" type="xs:string" />
-						<xs:element name="values" type="devlist" minOccurs="1" />
+						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="values" type="devlist" minOccurs="1" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -16,11 +16,11 @@
 			<xs:element name="specs_time">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="name" type="xs:string" />
-						<xs:element name="time_start" type="xs:decimal" />
-						<xs:element name="time_end" type="xs:decimal" />
-						<xs:element name="time_increment" type="xs:decimal" />
-						<xs:element name="time_unit">
+						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+						<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="time_increment" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="time_unit minOccurs="1" maxOccurs="1"">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="s" />
@@ -36,8 +36,8 @@
 			<xs:element name="specs_tile">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="name" type="xs:string" minOccurs="1" />
-						<xs:element name="values" type="tilelist" minOccurs="1" />
+						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="values" type="tilelist" minOccurs="1" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -45,8 +45,8 @@
 			<xs:element name="specs_event">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="name" type="xs:string" minOccurs="1" />
-						<xs:element name="values" type="xs:string" minOccurs="1" />
+						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="values" type="xs:string" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="event_type" minOccurs="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -61,10 +61,10 @@
 			<xs:element name="specs_prob">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="name" type="xs:string" minOccurs="1" />
-						<xs:element name="method" minOccurs="1">
-							<xs:alternative test="@name ='HMM'" type="HP"/>
-							<xs:alternative test="@name ='StaticBayes'" type="BP"/>				
+						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="method" minOccurs="1" maxOccurs="1" type = "method">
+							<xs:alternative test="@name ='HMM'" type="HMMParams"/>
+							<xs:alternative test="@name ='StaticBayes'" type="BayesParams"/>				
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -82,47 +82,66 @@
 	<xs:list itemType="xs:unsignedLong" />
 </xs:simpleType>
 
-<xs:complexType name="HP">
-        <xs:sequence>
-			<xs:element name="prior" minOccurs="1">
-				<xs:simpleType>		
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="uniform" />
-						<xs:enumeration value="network" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="transition" minOccurs="1">
-				<xs:simpleType>		
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="rectangle" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="emission" minOccurs="1">
-				<xs:simpleType>		
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="RSS" />
-						<xs:enumeration value="SDM" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	<xs:attribute name="name" type="xs:string" fixed="HMM"/>
+
+<xs:complexType name="method">
+	<xs:attribute name="name" type = "allowed-method-types"/>
 </xs:complexType>
 
-<xs:complexType name="BP">
-		<xs:sequence>
-			<xs:element name="prior" minOccurs="1">
-				<xs:simpleType>		
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="uniform" />
-						<xs:enumeration value="network" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-    <xs:attribute name="name" type="xs:string" fixed="StaticBayes"/>
+<xs:simpleType name="allowed-method-types">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="HMM"/>
+		<xs:enumeration value="StaticBayes"/>
+	</xs:restriction>
+</xs:simpleType>
+
+
+<xs:complexType name="HMMParams">
+	<xs:complexContent>
+		<xs:extension base = "method">
+			<xs:all>
+				<xs:element name="prior" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="uniform" />
+							<xs:enumeration value="network" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="transition" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="rectangle" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="emission" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="RSS" />
+							<xs:enumeration value="SDM" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BayesParams">
+	<xs:complexContent>
+		<xs:extension base = "method">
+			<xs:all>
+				<xs:element name="prior" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="uniform" />
+							<xs:enumeration value="network" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
 </xs:complexType>
 
 </xs:schema>
