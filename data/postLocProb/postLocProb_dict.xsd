@@ -1,0 +1,232 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="posteriorLocationProbabilities">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="specs_device">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="devIDValues" type="devlist" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="specs_time" type="time_type">
+				<xs:alternative test="@type ='Discrete'" type="DiscreteTime"/>
+				<xs:alternative test="@type ='Continous'" type="ContinousTime"/>				
+			</xs:element>	
+
+			<xs:element name="specs_tile">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="tileColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="tileIDValues" type="tilelist" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="specs_event" minOccurs="1" maxOccurs="1" type = "event_type">
+				<xs:alternative test="@eventType ='CellID'" type="CellIDEvent"/>
+				<xs:alternative test="@eventType ='CellIDTA'" type="CellIDTAEvent"/>				
+			</xs:element>
+				
+		
+			<xs:element name="specs_prob">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="probColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="method" minOccurs="1" maxOccurs="1" type = "method">
+							<xs:alternative test="@name ='HMM'" type="HMMParams"/>
+							<xs:alternative test="@name ='StaticBayes'" type="BayesParams"/>				
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+		</xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:simpleType name="devlist">
+	<xs:list itemType="xs:unsignedLong" />
+</xs:simpleType>
+
+<xs:simpleType name="celllist">
+	<xs:list itemType="xs:string" />
+</xs:simpleType>
+
+<xs:simpleType name="TAlist">
+	<xs:list itemType="xs:unsignedLong" />
+</xs:simpleType>
+
+
+<xs:simpleType name="celltype">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="3G"/>
+		<xs:enumeration value="4G"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tilelist">
+	<xs:list itemType="xs:unsignedLong" />
+</xs:simpleType>
+
+<xs:complexType name="time_type">
+	<xs:attribute name="type" type = "allowed-time-types"/>
+</xs:complexType>
+
+<xs:simpleType name="allowed-time-types">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Discrete"/>
+		<xs:enumeration value="Continous"/>
+	</xs:restriction>
+</xs:simpleType>
+
+
+<xs:complexType name="DiscreteTime">
+	<xs:complexContent>
+		<xs:extension base = "time_type">
+			<xs:all>
+				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="time_increment" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="time_unit" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="s" />
+							<xs:enumeration value="m" />
+							<xs:enumeration value="h" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+
+<xs:complexType name="ContinousTime">
+	<xs:complexContent>
+		<xs:extension base = "time_type">
+			<xs:all>
+				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="time_unit" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="s" />
+							<xs:enumeration value="m" />
+							<xs:enumeration value="h" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+
+<xs:complexType name="event_type">
+	<xs:attribute name="eventType" type = "allowed-event-types"/>
+</xs:complexType>
+
+<xs:simpleType name="allowed-event-types">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="CellID"/>
+		<xs:enumeration value="CellIDTA"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="CellIDEvent">
+	<xs:complexContent>
+		<xs:extension base = "event_type">
+			<xs:all>
+				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="cellIDValues" type="celllist" minOccurs="1" maxOccurs="1"/>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CellIDTAEvent">
+	<xs:complexContent>
+		<xs:extension base = "event_type">
+			<xs:sequence>
+				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="cellIDValues" type="celllist" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TAColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TAValues" type="TAlist" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="cellTypeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="cellTypeValues" type="celltype" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+
+<xs:complexType name="method">
+	<xs:attribute name="name" type = "allowed-method-types"/>
+</xs:complexType>
+
+<xs:simpleType name="allowed-method-types">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="HMM"/>
+		<xs:enumeration value="StaticBayes"/>
+	</xs:restriction>
+</xs:simpleType>
+
+
+<xs:complexType name="HMMParams">
+	<xs:complexContent>
+		<xs:extension base = "method">
+			<xs:all>
+				<xs:element name="prior" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="uniform" />
+							<xs:enumeration value="network" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="transition" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="rectangle" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="emission" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="RSS" />
+							<xs:enumeration value="SDM" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BayesParams">
+	<xs:complexContent>
+		<xs:extension base = "method">
+			<xs:all>
+				<xs:element name="prior" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>		
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="uniform" />
+							<xs:enumeration value="network" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+</xs:schema>
