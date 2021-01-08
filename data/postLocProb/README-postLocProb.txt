@@ -1,4 +1,4 @@
-The postLocProb.xml files describes the standardized structure of the csv files containing the posterior location probabilities for each device at each time instant.
+The postLocProb_dict.xml file describes the standardized structure of the csv files containing the posterior location probabilities for each device at each time instant.
 The content of this file defines the following elements:
 
 1. <posteriorLocationProbabilities>
@@ -24,9 +24,9 @@ a5) <time_unit> : it gives the value time unit and it can have of of the followi
 b) type = "Continous"
 In this case the <specs_time> element will contain the following 4 mandatory child elements:
 a1) <timeColName> : it gives the column name (in the csv file) of the time variable;
-a2)	<time_start> : it gives the value of the initial time instant as a floating point value
-a3)	<time_end> : it gives the value of the final time instant as a floating point value
-a5) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h
+a2)	<time_start> : it gives the value of the initial time instant as a floating point value;
+a3)	<time_end> : it gives the value of the final time instant as a floating point value;
+a4) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
 
 4. <specs_tile>
 It enumerates the tile IDs and its parent is <posteriorLocationProbabilities>.
@@ -50,10 +50,10 @@ b) eventType = "CellIDTA"
 In this case the <specs_event> element will contain the following 8 mandatory child elements:
 b1) <cellIDColName> : it gives the column name (in the csv file) of the cell ID;
 b2) <cellIDValues> : it enumerates the cell IDs as a list where the items are strings separated by white spaces;
-b3) <TADColName> : it gives the column name (in the csv file) of the TA variable;
+b3) <TAColName> : it gives the column name (in the csv file) of the TA variable;
 b4) <TAValues> : it enumerates the TA values as a list where the items are strings separated by white spaces;
-b5) <cellTypeColName> : it gives the column name (in the csv file) of the cell type variable and 
-b6) <cellTypeValues> : it enumerates the possible values for the cell type; the only valid values are "3G" or "4G"
+b5) <cellTypeColName> : it gives the column name (in the csv file) of the cell type variable;
+b6) <cellTypeValues> : it enumerates the possible values for the cell type; the only valid values are "3G" or "4G";
 
 6. <specs_prob >
 It describes the method used to compute the location probabilities of the devices 
@@ -66,13 +66,10 @@ the attribute name could have one of the two following values: "HMM" or "StaticB
 
 b1) name = "HMM"
 In this case the <method> element will contain the following 3 mandatory child elements:
-b11) <prior> : it gives the priors used to compute the location probabilities and it could have one
-of the following two values: "network" or "uniform"
-b12) <transition> : it gives the transition model used by the HMM and currently could have onnly a single value: "rectangle"
-b13) <emission> : it gives the method used to compute to emmision probabilities of the HMM and it could
-haveone of the two following values: "RSS" or "SDM"
+b11) <prior> : it gives the priors used to compute the location probabilities and it could have one of the following two values: "network" or "uniform";
+b12) <transition> : it gives the transition model used by the HMM and currently could have onnly a single value: "rectangle";
+b13) <emission> : it gives the method used to compute to emmision probabilities of the HMM and it could haveone of the two following values: "RSS" or "SDM";
 
 b2) name = "StaticBayes"
 In this case the <method> element will contain the one mandatory child element:
-b21) <prior> : it gives the priors used to compute the location probabilities and it could have one
-of the following two values: "network" or "uniform"
+b21) <prior> : it gives the priors used to compute the location probabilities and it could have one of the following two values: "network" or "uniform";
