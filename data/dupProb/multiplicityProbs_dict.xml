@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<multiplicityProbabilities>
+	<specs_device>
+		<devColName>device</devColName>
+		<devIDValues>104 106 116 117 119 120 122 127 128 130 132 134 141 142 146 150 152 154 156 159 160 162 164 165 169 170 173 175 187 190 192 194 198 202 204 207 211 213 215 216 222 225 226 229 230 232 235 237 243 244 246 248 250 252 255 259 261 268 271 276 279 283 292 293 295 296 298 301 304 305 309 313 315 320 324 327 328 332 335 341 344 348 349 351 353 355 357 363 365 369 374 378 381 383 384 388 390 392 395 396 399 401 408 410 412 424 428 430 431 437 440 441 445 452 456 459 460 464 467 471 472 477 481 482 489 492 493 496 500 506 507 515 517 522 524 530 532 534 537 538 540 543 544 548 553 559 564 566 576 578 586 587 590 593 595 597 600 605 611 631 634 635 641 643 644 648 651 652 654 662 665 668 669 671 674 683 686 690 694 698 700 706 708 715 718 720 721 723 726 729 732 735 738 74 740 743 747 755 758 759 761 762 767 768 774 777 80 82 84 86 90 93</devIDValues>
+		<description> These are the IDs of the devices</description>	
+	</specs_device>
+
+	<specs_prob>
+		<multiProb2>dupProb</multiProb2>
+		<description> The description of the multiplicity probs </description>
+	</specs_prob>
+
+	<specs_method name = "OneToOne">
+		<aprioriOneDevice>0.82</aprioriOneDevice>
+		<description> The description of the parameter </description>
+	</specs_method>
+</multiplicityProbabilities>
+
