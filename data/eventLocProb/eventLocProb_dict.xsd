@@ -4,7 +4,7 @@
 <xs:element name="eventLocationProbabilities">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="specs_device">
+			<xs:element name="specs_device" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
@@ -14,12 +14,12 @@
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="specs_time" type="time_type">
+			<xs:element name="specs_time" type="time_type" minOccurs="1" maxOccurs="1">
 				<xs:alternative test="@type ='Discrete'" type="DiscreteTime"/>
 				<xs:alternative test="@type ='Continous'" type="ContinousTime"/>				
 			</xs:element>	
 
-			<xs:element name="specs_tile">
+			<xs:element name="specs_tile" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="tileColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
@@ -35,7 +35,7 @@
 			</xs:element>
 				
 		
-			<xs:element name="specs_prob">
+			<xs:element name="specs_prob" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="probColName" type="xs:string" minOccurs="1" maxOccurs="1"/>

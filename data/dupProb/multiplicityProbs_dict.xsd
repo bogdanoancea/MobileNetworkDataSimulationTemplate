@@ -4,7 +4,7 @@
 <xs:element name="multiplicityProbabilities">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="specs_device">
+			<xs:element name="specs_device" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
