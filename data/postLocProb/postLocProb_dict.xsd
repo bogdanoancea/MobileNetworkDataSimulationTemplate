@@ -9,6 +9,7 @@
 					<xs:sequence>
 						<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="devIDValues" type="devlist" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -23,6 +24,7 @@
 					<xs:sequence>
 						<xs:element name="tileColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="tileIDValues" type="tilelist" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -41,6 +43,7 @@
 							<xs:alternative test="@name ='HMM'" type="HMMParams"/>
 							<xs:alternative test="@name ='StaticBayes'" type="BayesParams"/>				
 						</xs:element>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -88,7 +91,7 @@
 <xs:complexType name="DiscreteTime">
 	<xs:complexContent>
 		<xs:extension base = "time_type">
-			<xs:all>
+			<xs:sequence>
 				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
 				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
@@ -102,7 +105,8 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-			</xs:all>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
@@ -111,7 +115,7 @@
 <xs:complexType name="ContinousTime">
 	<xs:complexContent>
 		<xs:extension base = "time_type">
-			<xs:all>
+			<xs:sequence>
 				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
 				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
@@ -124,7 +128,7 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-			</xs:all>
+			</xs:sequence>
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
@@ -144,10 +148,11 @@
 <xs:complexType name="CellIDEvent">
 	<xs:complexContent>
 		<xs:extension base = "event_type">
-			<xs:all>
+			<xs:sequence>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellIDValues" type="celllist" minOccurs="1" maxOccurs="1"/>
-			</xs:all>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
@@ -162,6 +167,7 @@
 				<xs:element name="TAValues" type="TAlist" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellTypeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellTypeValues" type="celltype" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
 	</xs:complexContent>
@@ -207,6 +213,7 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 		</xs:extension>
 	</xs:complexContent>
@@ -224,6 +231,7 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 		</xs:extension>
 	</xs:complexContent>
