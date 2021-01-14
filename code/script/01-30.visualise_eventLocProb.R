@@ -71,7 +71,7 @@ map_pag(rst,
         dt = strength_llh,
         cp = cp,
         region = map,
-        cells = 3,
+        cells = 5,
         interactive = FALSE,
         settings = settings_plot)
 
@@ -98,6 +98,28 @@ animate_pag(rst,
 
 
 
+### FOR DELIVERABLE I3
+rst      <- sim_get_raster(sim)
+cp       <- sim_get_cellplan(sim)
+map      <- sim_get_region(sim)
+strength <- sim_get_signal_strength(sim, rst, cp)[
+  , dist:= NA]
+param        <- mobloc_param()
+strength_llh <- create_strength_llh(strength, param = param)
+settings_plot <- mobvis_settings(cell_size = 1, dev_size = 2)
+settings_plot$titles["pag"] <- "Event location"
 
 
+p.list <- lapply(3:8, function(cellID){
+
+  map_pag(rst,
+          dt = strength_llh,
+          cp = cp,
+          region = map,
+          cells = cellID,
+          interactive = FALSE,
+          settings = settings_plot)
+})
+
+tmap_arrange(p.list, nrow = 3, ncol = 2, labels = names(p.list))
 

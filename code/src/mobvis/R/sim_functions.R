@@ -66,6 +66,7 @@ sim_get_cellplan <- function(sim) {
 #' @rdname sim_data
 #' @export
 sim_get_signal_strength <- function(sim, rst, cp) {
+
     suppressMessages({
         readr::read_csv(file.path(sim$resources_dir, paste0("SignalMeasure_", sim$mno, ".csv")), progress = FALSE) %>%
         dplyr::rename(cell = "Antenna ID") %>%

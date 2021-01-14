@@ -1,4 +1,0 @@
-"0","# Calculate the event location (likelihood) probabilities using mobloc"
-"0","network_prior <- create_network_prior(strength, rst)"
-"0","posterior <- calculate_posterior(prior = network_prior, llh = strength_llh, raster = rst)"
-"0","print(posterior)"

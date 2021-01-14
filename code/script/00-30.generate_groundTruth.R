@@ -1,6 +1,6 @@
 ####  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ####
 ####                           SET PATHS                                    ####
-path_root        <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/template'
+path_root        <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/MobileNetworkDataSimulationTemplate'
 path_source      <- file.path(path_root, 'code/src')
 path_simConfig   <- file.path(path_root, 'data/simulatorConfig')
 path_events      <- file.path(path_root, 'data/networkEvents')
@@ -100,14 +100,14 @@ od_region.dt <- merge(od_from.dt, od_to.dt, by = c('device', 'time'))[
   , time := NULL][
   , .N, by = c('time_from', 'time_to', 'region_from', 'region_to')]
 setnames(od_region.dt, 'N', 'Nnet_true')
-NnetOD_true_region.dt <- merge(
+NnetOD_t_true_region.dt <- merge(
   data.table(expand.grid(time_from   = times[-length(times)],
                          time_to     = times[-1],
                          region_from = unique(regions.dt$region), 
                          region_to   = unique(regions.dt$region))),
   od_region.dt, all.y = TRUE)[
     is.na(Nnet_true), Nnet_true := 0]
-setcolorder(NnetOD_true_region.dt, c('time_from', 'time_to', 'region_from', 'region_to', 'Nnet_true'))
+setcolorder(NnetOD_t_true_region.dt, c('time_from', 'time_to', 'region_from', 'region_to', 'Nnet_true'))
 
 
 

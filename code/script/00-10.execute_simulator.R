@@ -5,19 +5,22 @@ library(xml2)       # to read simulatorConfig xml files
 ####  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ####
 ####                           SET PATHS                                    ####
 # WARNING: Docker desktop must be running in Windows and user signed in
-path_simulation     <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/template'
+path_simulation     <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/MobileNetworkDataSimulationTemplate'
 path_configFiles    <- file.path(path_simulation, 'data/simulatorConfig')
 path_resources      <- file.path(path_simulation, 'param/resources')
 path_groundTruth    <- file.path(path_simulation, 'param/groundTruth')
 path_events         <- file.path(path_simulation, 'data/networkEvents')
-path_docker         <- "C:/simulator-master/docker"
-#path_docker         <- "C:/simulator/simulator-master-docker/docker"
+# path_docker         <- file.path(path_simulation, 'code/docker')
+path_docker         <- "C:/simulator/simulator-master-docker/docker"
 path_docker_WIN     <- normalizePath(path_docker)
 path_docker_output  <- file.path(path_docker, "output")
 path_docker_output_WIN <- normalizePath(path_docker_output)
 
 ###                            :::::::::::::::                              ####
 #####                      SIMULATION PARAMETERS                           #####
+
+probabilities <- FALSE
+
 simulatorConfigFileNames <- c('antennas.xml', 'map.wkt', 'persons.xml', 
                               'probabilities.xml', 'simulation.xml')
 
@@ -50,14 +53,18 @@ for (fn in simulatorConfigFileNames){
 
 ###                            :::::::::::::::                              ####
 #####                        EXECUTE SIMULATION                            #####
+
 fileConn <- file(file.path(path_docker, "exe_simulator_docker.cmd"))
 commands_console <- paste0(
   "cd ", path_docker_WIN, " \n",
   "docker load -i ", path_docker_WIN, "\\simulator.tar \n", 
-  "docker run --rm -v ", path_docker_output_WIN, ":/repo/output ",
+  "docker run --rm -v ", tolower(path_docker_output_WIN), ":/repo/output ",
   "-t -i simulator -m output/map.wkt -s output/simulation.xml ",
-  "-p output/persons.xml -a output/antennas.xml ",
-  "-v -o -pb output/probabilities.xml")
+  "-p output/persons.xml -a output/antennas.xml")
+if(probabilities){
+  commands_console <- paste0(commands_console,
+                             " -v -o -pb output/probabilities.xml")
+}
 writeLines(commands_console, fileConn)
 close(fileConn)
 

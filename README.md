@@ -41,5 +41,4 @@ The whole process is designed according to a sequence of production process step
    - *postLocProb*: it contains the probability distributions of each device location.
    - *simulatorConfig*: it contains the files with the configuration of the simulator providing the syntehtic scenario.
  * **metrics**: it contains graphical representations and images in general, (quality) indicators of the process, and log(s).
- * **param**: it contains both global parameters (in subfolder *resources*) and specific process parameters (in subfolder *process*). Information about the (simulated) ground truth is also contained here (in real production conditions this never exists).
- * *log*: it contains logs of the process execution.
+ * **param**: it contains both global parameters (in subfolder *resources*) and specific process parameters (in subfolder *process*). Information about the (simulated) ground truth is also contained here (in real production conditions this never exists; we shall use to make analyses).

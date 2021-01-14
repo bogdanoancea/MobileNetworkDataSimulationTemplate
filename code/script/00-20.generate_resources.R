@@ -1,6 +1,6 @@
 ####  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ####
 ####                           SET PATHS                                    ####
-path_root      <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/template'
+path_root      <- 'G:/GRUPO_BIGDATA/Proyecto_ESSNet Big Data II/Simulations/MobileNetworkDataSimulationTemplate'
 path_source    <- file.path(path_root, 'code/src')
 path_simConfig <- file.path(path_root, 'data/simulatorConfig')
 path_events    <- file.path(path_root, 'data/networkEvents')

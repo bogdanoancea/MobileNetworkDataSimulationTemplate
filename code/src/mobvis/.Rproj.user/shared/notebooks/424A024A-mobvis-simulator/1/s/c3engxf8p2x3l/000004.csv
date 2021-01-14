@@ -1,3 +1,0 @@
-"0","rst <- sim_get_raster(sim)"
-"0","cp <- sim_get_cellplan(sim)"
-"0","region <- sim_get_region(sim)"

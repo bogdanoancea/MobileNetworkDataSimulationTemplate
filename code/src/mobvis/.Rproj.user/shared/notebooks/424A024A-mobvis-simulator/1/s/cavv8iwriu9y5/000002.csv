@@ -1,7 +1,0 @@
-"0","# specify folder for the simulator files"
-"0","dir <- ""simdata"""
-"0","if (!dir.exists(dir)) dir.create(dir, recursive = TRUE) else unlink(dir, recursive = TRUE)"
-"0",""
-"0","# unzip the zip file into that folder "
-"0","zipfile <- system.file(""sim"", ""simdata.zip"", package = ""mobvis"")"
-"0","unzip(zipfile, exdir = dir)"

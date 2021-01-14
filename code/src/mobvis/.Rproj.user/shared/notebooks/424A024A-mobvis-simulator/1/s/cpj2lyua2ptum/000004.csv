@@ -1,2 +1,0 @@
-"0","strength <- sim_get_signal_strength(sim, rst, cp)"
-"0","print(strength)"
