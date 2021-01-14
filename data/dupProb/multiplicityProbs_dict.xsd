@@ -1,0 +1,137 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="multiplicityProbabilities">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="specs_device" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="devIDValues" type="devlist" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name = "specs_prob">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:any minOccurs = "1" maxOccurs="unbounded" processContents="lax" />
+					</xs:sequence>
+					<xs:assert test="every $x in * satisfies matches(local-name($x), 'description|multiProb[2-9]')"/>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="specs_method" minOccurs="1" maxOccurs="1" type = "multiProbMethod">
+				<xs:alternative test="@name ='OneToOne'" type="OneToOneParams"/>
+				<xs:alternative test="@name ='OneToOneLambda'" type="OneToOneLambdaParams"/>
+				<xs:alternative test="@name ='Pairs'" type="PairsParams"/>
+				<xs:alternative test="@name ='Trajectory'" type="TrajectoryParams"/>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+<xs:simpleType name="devlist">
+	<xs:list itemType="xs:unsignedLong" />
+</xs:simpleType>
+
+
+<xs:complexType name="multiProbMethod">
+	<xs:attribute name="name" type = "allowed-method-types"/>
+</xs:complexType>
+
+<xs:simpleType name="allowed-method-types">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="OneToOne"/>
+		<xs:enumeration value="OneToLambda"/>
+		<xs:enumeration value="Pairs"/>
+		<xs:enumeration value="Trajectory"/>
+	</xs:restriction>
+</xs:simpleType>
+
+
+<xs:complexType name="OneToOneParams">
+	<xs:complexContent>
+		<xs:extension base = "multiProbMethod">
+			<xs:all>
+				<xs:element name="aprioriOneDevice" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>	
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0.0"/>
+							<xs:maxInclusive value="1.0"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="OneToOneLambdaParams">
+	<xs:complexContent>
+		<xs:extension base = "multiProbMethod">
+			<xs:all>
+				<xs:element name="lambda" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>	
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0.0"/>
+							<xs:maxInclusive value="1.0"/>
+						</xs:restriction>
+					</xs:simpleType>	
+				</xs:element>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PairsParams">
+	<xs:complexContent>
+		<xs:extension base = "multiProbMethod">
+			<xs:all>
+				<xs:element name="aprioriDupProb" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>	
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0.0"/>
+							<xs:maxInclusive value="1.0"/>
+						</xs:restriction>
+					</xs:simpleType>	
+				</xs:element>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TrajectoryParams">
+	<xs:complexContent>
+		<xs:extension base = "multiProbMethod">
+			<xs:all>
+				<xs:element name="gamma" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>	
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0.0"/>
+							<xs:maxInclusive value="1.0"/>
+						</xs:restriction>
+					</xs:simpleType>	
+				</xs:element>
+				<xs:element name="aprioriDupProb" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>	
+						<xs:restriction base="xs:decimal">
+							<xs:minInclusive value="0.0"/>
+							<xs:maxInclusive value="1.0"/>
+						</xs:restriction>
+					</xs:simpleType>	
+				</xs:element>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+
+</xs:schema>
