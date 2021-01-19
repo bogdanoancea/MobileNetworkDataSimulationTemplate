@@ -1,23 +1,25 @@
 <?xml version="1.0"?>
-<nNetDistrib>
+<nTargetOD>
 	<specs_time type="Discrete">
-		<timeColName>time</timeColName>
+		<timeFromColName>time_from</timeFromColName>
+		<timeToColName>time_from</timeToColName>
 		<time_start>0</time_start>
 		<time_end>890</time_end>
 		<time_increment>10</time_increment>
 		<time_unit>s</time_unit>
 	</specs_time>
 	<specs_region>
-		<regionColName>region</regionColName>
+		<regionFromColName>region_from</regionFromColName>
+		<regionToColName>region_from</regionToColName>
 		<regionValues>1 2 3 4 5 6 7 8 9 10</regionValues>
 	</specs_region>
-	<specs_nNet>
-		<nNetColName>nNet</nNetColName>
+	<specs_nTargetOD>
+		<nTargetODColName>nPop</ntargetODColName>
 		<value_type>decimal</value_type>
-		<description>These are the random values generated from the distribution of the number of individula detected by the network</description>	
-	</specs_nNet>
+	</specs_nTargetOD>
 	<specs_iter>
 		<iterColName>iter_count</iterColName>
 		<noIterValue>1000</noIterValue>
 	</specs_iter>
-</nNetDistrib>
+	<specs_distr type = "BetaNegBin"/>
+</nTargetOD>

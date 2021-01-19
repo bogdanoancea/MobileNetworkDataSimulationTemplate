@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-<xs:element name="nNetDistrib">
+<xs:element name="nNetOD">
 	<xs:complexType>
 		<xs:sequence>
 			<xs:element name="specs_time" type="time_type" minOccurs="1" maxOccurs="1">
@@ -12,17 +12,18 @@
 			<xs:element name="specs_region" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="regionFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="regionToColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="regionValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="specs_nNet" minOccurs="1" maxOccurs="1">
+			<xs:element name="specs_nNetOD" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="nNetColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="nNetODColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="value_type" minOccurs="1" maxOccurs="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -49,8 +50,6 @@
     </xs:complexType>
 </xs:element>
 
-
-
 <xs:simpleType name="regionlist">
 	<xs:list itemType="xs:unsignedLong" />
 </xs:simpleType>
@@ -71,7 +70,8 @@
 	<xs:complexContent>
 		<xs:extension base = "time_type">
 			<xs:sequence>
-				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="timeFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="timeToColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
 				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="time_increment" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
@@ -95,7 +95,8 @@
 	<xs:complexContent>
 		<xs:extension base = "time_type">
 			<xs:sequence>
-				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="timeFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="timeToColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
 				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="time_unit" minOccurs="1" maxOccurs="1">
@@ -107,11 +108,10 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
-
-
 
 </xs:schema>
