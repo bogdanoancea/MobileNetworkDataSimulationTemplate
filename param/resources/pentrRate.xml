@@ -1,0 +1,6 @@
+<penetration_rate>
+        <regionColName>region</regionColName>
+		<regionIDValues>1 2 3 4 5 6 7 8 9 10</regionIDValues>
+		<pntRateColName>pntRate</pntRateColName>
+		<value_type>decimal</value_type>
+</penetration_rate>
