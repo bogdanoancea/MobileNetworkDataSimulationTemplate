@@ -31,7 +31,6 @@ will contain one mandatory child elements and one optional element:
 a11) <aprioriOneDevice> : it gives the apriori probability for the mobile device to be in an 1-to-1 correspondence with its owner;
 a12) <description> : an optional tag that can provide a textual description;
 
-
 a2) name = "OneToOneLambda"
 Means that the multiplicy probability was computed using the 1-to-1 with lambda parameter method and in this case the <specs_method> element 
 will contain one mandatory child elements and one optional element:

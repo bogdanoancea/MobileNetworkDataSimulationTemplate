@@ -19,11 +19,11 @@ a6) <description> : an optional tag that can provide a textual description;
 
 b) type = "Continous"
 In this case the <specs_time> element will contain the following 4 mandatory child elements and one optional element:
-a1) <timeColName> : it gives the column name (in the csv file) of the time variable;
-a2)	<time_start> : it gives the value of the initial time instant as a floating point value;
-a3)	<time_end> : it gives the value of the final time instant as a floating point value;
-a4) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
-a5) <description> : an optional tag that can provide a textual description;
+b1) <timeColName> : it gives the column name (in the csv file) of the time variable;
+b2)	<time_start> : it gives the value of the initial time instant as a floating point value;
+b3)	<time_end> : it gives the value of the final time instant as a floating point value;
+b4) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
+b5) <description> : an optional tag that can provide a textual description;
 
 3. <specs_event eventType = ...>
 It describes the events captured by the network and its parent is <networkEvents>.
@@ -72,12 +72,12 @@ a2) <yColName> : it gives the column name (in the csv file) of the y coordinate;
 a3) <zColName> : optional, it gives the column name (in the csv file) of the z coordinate
 a4) <description> : an optional tag that can provide a textual description;
 
-a)CRSType = WGS84
+b)CRSType = WGS84
 In this case the <specs_coords> element will contain the following 2 mandatory child elements and 2 optional elements:
-a1) <latColName> : it gives the column name (in the csv file) of the latitude;
-a2) <longColName> : it gives the column name (in the csv file) of the longitute;
-a3) <zColName> : optional, it gives the column name (in the csv file) of the z coordinate
-a4) <description> : an optional tag that can provide a textual description;
+b1) <latColName> : it gives the column name (in the csv file) of the latitude;
+b2) <longColName> : it gives the column name (in the csv file) of the longitute;
+b3) <zColName> : optional, it gives the column name (in the csv file) of the z coordinate
+b4) <description> : an optional tag that can provide a textual description;
 
 
 6. <specs_tile>

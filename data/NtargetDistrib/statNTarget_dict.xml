@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<statNTarget>
+	<specs_time type="Discrete">
+		<timeColName>time</timeColName>
+		<time_start>0</time_start>
+		<time_end>890</time_end>
+		<time_increment>10</time_increment>
+		<time_unit>s</time_unit>
+	</specs_time>
+	<specs_region>
+		<regionColName>region</regionColName>
+		<regionValues>1 2 3 4 5 6 7 8 9 10</regionValues>
+	</specs_region>
+	<specs_mean>
+		<meanColName>Mean</meanColName>
+		<value_type>decimal</value_type>
+	</specs_mean>
+	<specs_mode>
+		<modeColName>Mode</modeColName>
+		<value_type>decimal</value_type>
+	</specs_mode>
+	<specs_median>
+		<medianColName>Median</medianColName>
+		<value_type>decimal</value_type>
+	</specs_median>
+	<specs_min>
+		<minColName>Min</minColName>
+		<value_type>decimal</value_type>
+	</specs_min>
+	<specs_max>
+		<maxColName>Max</maxColName>
+		<value_type>decimal</value_type>
+	</specs_max>
+	<specs_Q1>
+		<Q1ColName>Q1</Q1ColName>
+		<value_type>decimal</value_type>
+		<description>First quartile</description>
+	</specs_Q1>
+	<specs_Q3>
+		<Q3ColName>Q3</Q3ColName>
+		<value_type>decimal</value_type>
+		<description>Third quartile</description>
+	</specs_Q3>
+	<specs_IQR>
+		<IQRColName>IQR</IQRColName>
+		<value_type>decimal</value_type>
+		<description>Inter quartile quartile</description>
+	</specs_IQR>
+	<specs_sd>
+		<sdColName>SD</sdColName>
+		<value_type>decimal</value_type>
+	</specs_sd>
+	<specs_cv>
+		<cvColName>CV</cvColName>
+		<value_type>decimal</value_type>
+	</specs_cv>
+	<specs_CI>
+		<CILOWColName>CI_LOW</CILOWColName>
+		<CIHIGHColName>CI_HIGH</CIHIGHColName>
+		<value_type>decimal</value_type>
+		<method>ETI</method>
+	</specs_CI>
+	<specs_distr type = "BetaNegBin"/>
+</statNTarget>

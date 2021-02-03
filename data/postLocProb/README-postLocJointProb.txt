@@ -27,12 +27,12 @@ a7) <description> : an optional tag that can provide a textual description;
 
 b) type = "Continous"
 In this case the <specs_time> element will contain the following 5 mandatory child elements and  one optional element:
-a1) <timeFromColName> : it gives the column name (in the csv file) of the intial time instant variable for a transition;
-a2) <timeToColName> : it gives the column name (in the csv file) of the final time variable for a transition;
-a3)	<time_start> : it gives the value of the initial time instant of the whole data set as a floating point value;
-a4)	<time_end> : it gives the value of the final time instant of the whole data set as a floating point value;
-a5) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
-a6) <description> : an optional tag that can provide a textual description;
+b1) <timeFromColName> : it gives the column name (in the csv file) of the intial time instant variable for a transition;
+b2) <timeToColName> : it gives the column name (in the csv file) of the final time variable for a transition;
+b3)	<time_start> : it gives the value of the initial time instant of the whole data set as a floating point value;
+b4)	<time_end> : it gives the value of the final time instant of the whole data set as a floating point value;
+b5) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
+b6) <description> : an optional tag that can provide a textual description;
 
 4. <specs_tile>
 It enumerates the tile IDs and its parent is <posteriorLocationJointProbabilities>.

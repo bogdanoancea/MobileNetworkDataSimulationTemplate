@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="penetration_rate">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="regionIDValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pntRateColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="value_type" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>	
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="decimal"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:simpleType name="regionlist">
+	<xs:list itemType="xs:unsignedLong" />
+</xs:simpleType>
+
+</xs:schema>
