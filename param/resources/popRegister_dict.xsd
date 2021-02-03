@@ -4,15 +4,29 @@
 <xs:element name="population_register">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="regionIDValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="popRegColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="value_type" minOccurs="1" maxOccurs="1">
-				<xs:simpleType>	
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="integer"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="specs_region" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="regionValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>			
+			
+			<xs:element name = "specs_popReg minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="popRegColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="value_type" minOccurs="1" maxOccurs="1">
+							<xs:simpleType>	
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="integer"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
     </xs:complexType>

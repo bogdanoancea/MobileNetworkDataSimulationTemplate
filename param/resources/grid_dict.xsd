@@ -4,7 +4,7 @@
 <xs:element name="grid">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="grid_origin" minOccurs="1" maxOccurs="1">
+			<xs:element name="specs_grid_origin" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="OriginXColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
@@ -20,7 +20,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="grid_tile_dim" minOccurs="1" maxOccurs="1">
+			<xs:element name="specs_grid_tile_dim" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="XTileDimColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
@@ -36,7 +36,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="grid_tile_no" minOccurs="1" maxOccurs="1">
+			<xs:element name="specs_grid_tile_no" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="NoTilesXColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
