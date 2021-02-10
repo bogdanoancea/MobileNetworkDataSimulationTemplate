@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <nNetDistrib>
+	<specs_file>
+		<fileName>Nnet_RSS-network_1to1.csv</fileName>
+	</specs_file>
 	<specs_time type="Discrete">
 		<timeColName>time</timeColName>
 		<time_start>0</time_start>

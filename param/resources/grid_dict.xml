@@ -1,4 +1,7 @@
 <grid>
+	<specs_file>
+		<fileName>grid.csv</fileName>
+	</specs_file>
     <specs_grid_origin>
 		<OriginXColName>Origin X</OriginXColName>
 		<OriginYColName>Origin Y</OriginYColName>

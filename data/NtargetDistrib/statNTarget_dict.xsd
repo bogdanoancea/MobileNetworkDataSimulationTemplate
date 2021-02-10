@@ -4,6 +4,15 @@
 <xs:element name="statNTarget">
 	<xs:complexType>
 		<xs:sequence>
+			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		
 			<xs:element name="specs_time" type="time_type" minOccurs="1" maxOccurs="1">
 				<xs:alternative test="@type ='Discrete'" type="DiscreteTime"/>
 				<xs:alternative test="@type ='Continous'" type="ContinousTime"/>				

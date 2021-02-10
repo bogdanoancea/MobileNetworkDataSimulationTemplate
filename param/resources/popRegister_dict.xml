@@ -1,4 +1,7 @@
 <population_register>
+	<specs_file>
+		<fileName>popRegister.csv</fileName>
+	</specs_file>
     <specs_region>
 		<regionColName>region</regionColName>
 		<regionValues>1 2 3 4 5 6 7 8 9 10</regionValues>

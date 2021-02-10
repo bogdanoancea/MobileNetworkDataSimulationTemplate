@@ -4,7 +4,16 @@ The content of this file defines the following elements:
 
 1. <nNetOD>
 This is the outermost element, it encloses the specificatons of other elements.
-2. <specs_time type=...> 
+
+2. <specs_file>
+It enumerates the file names to which the definition applies, and its parent is <nNetOD>.
+It contains at least 1 mandatory child element and one optional element:
+a) <fileName> : it gives the file name containing the actual data; the definition can be applied to several
+data files and this tag should be specified for each data file;
+b) <description> : an optional tag that can provide a textual description;
+
+
+3. <specs_time type=...> 
 It describes the time variable and its parent is <nNetOD>.
 The attribute type can have one of the two values: "Discrete"  or "Continous".
 a) type = "Discrete"
@@ -27,7 +36,7 @@ b5) <time_unit> : it gives the value time unit and it can have of of the followi
 b6) <description> : an optional tag that can provide a textual description;
 
 
-2. <specs_region>
+4. <specs_region>
 It gives the source and destination region IDs and its parent is <nNetOD>.
 It contains 3 mandatory child elements and one optional element:
 a) <regionFromColName> : it gives the column name (in the csv file) of the source region IDs;
@@ -36,7 +45,7 @@ c) <regionIDValues> : it enumerates the region IDs as a list where the items are
 d) <description> : an optional tag that can provide a textual description;
 
 
-3. <specs_nNetOD>
+5. <specs_nNetOD>
 It specifies the column with the values of the random values generated from the distribution of the number of 
 individuals moving from one region to another; its parent is <nNetOD>.
 It contains 2 mandatory child elements and one optional element:
@@ -46,7 +55,7 @@ b) <value_type> : it specifies the type of the data on the column;
 c) <description> : an optional tag that can provide a textual description;
 
 
-4. <specs_iter>
+6. <specs_iter>
 It gives the index of the above mentioned random values; its parent is <nNetOD>.
 It contains 2 mandatory child elements and one optional element:
 a) <iterColName> : it gives the column name of the index;

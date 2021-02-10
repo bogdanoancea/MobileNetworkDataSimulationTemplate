@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <networkEvents>
+	<specs_file>
+		<fileName>networkEvents.csv</fileName>
+	</specs_file>	
+
 	<specs_time type="Discrete">
 		<timeColName>time</timeColName>
 		<time_start>0</time_start>

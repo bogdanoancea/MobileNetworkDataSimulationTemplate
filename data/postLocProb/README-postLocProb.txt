@@ -4,14 +4,22 @@ The content of this file defines the following elements:
 1. <posteriorLocationProbabilities>
 This is the outermost element, it encloses the specificatons of other elements.
 
-2. <specs_device>
+2. <specs_file>
+It enumerates the file names to which the definition applies, and its parent is <posteriorLocationProbabilities>.
+It contains at least 1 mandatory child element and one optional element:
+a) <fileName> : it gives the file name containing the actual data; the definition can be applied to several
+data files and this tag should be specified for each data file;
+b) <description> : an optional tag that can provide a textual description;
+
+
+3. <specs_device>
 It enumerates the device IDs and its parent is <posteriorLocationProbabilities>.
 It contains 2 mandatory child elements and one optional element:
 a) <devColName> : it gives the column name (in the csv file) of the device IDs;
 b) <devIDValues> : it enumerates the device IDs as a list where the items are strings separated by white spaces;
 c) <description> : an optional tag that can provide a textual description;
 
-3. <specs_time type=...> 
+4. <specs_time type=...> 
 It describes the time variable and its parent is <posteriorLocationProbabilities>.
 The attribute type can have one of the two values: "Discrete"  or "Continous".
 a) type = "Discrete"
@@ -31,14 +39,14 @@ b3)	<time_end> : it gives the value of the final time instant as a floating poin
 b4) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
 b5) <description> : an optional tag that can provide a textual description;
 
-4. <specs_tile>
+5. <specs_tile>
 It enumerates the tile IDs and its parent is <posteriorLocationProbabilities>.
 It contains 2 mandatory child elements and one optional element:
 a) <tileColName> : it gives the column name (in the csv file) of the tile IDs;
 b) <tileIDValues> : it enumerates the tile IDs as a list where the items are unsigned integers separated by white spaces;
 c) <description> : an optional tag that can provide a textual description;
 
-5. <specs_event eventType = ...>
+6. <specs_event eventType = ...>
 It describes the events captured by the network and its parent is <posteriorLocationProbabilities>.
 The attribute eventType can have one of the two values: "CellID"  or "CellIDTA". In the first case a network event is 
 represented by the ID of the cell where the mobile device was detected and in the second case, besides the ID of the cell
@@ -61,7 +69,7 @@ b5) <cellTypeColName> : it gives the column name (in the csv file) of the cell t
 b6) <cellTypeValues> : it enumerates the possible values for the cell type; the only valid values are "3G" or "4G";
 b7) <description> : an optional tag that can provide a textual description;
 
-6. <specs_prob >
+7. <specs_prob >
 It describes the method used to compute the location probabilities of the devices 
 and its parent is <posteriorLocationProbabilities>.
 It contains 2 mandatory child elements and one optional element:
