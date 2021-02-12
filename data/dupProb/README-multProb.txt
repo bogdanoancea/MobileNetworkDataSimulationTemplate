@@ -4,14 +4,21 @@ The content of this file defines the following elements:
 1. <multiplicityProbabilities>
 This is the outermost element, it encloses the specificatons of other elements.
 
-2. <specs_device>
+2. <specs_file>
+It enumerates the file names to which the definitin applies, and its parent is <mutiplicityProbabilities>.
+It contains at least 1 mandatory child element and one optional element:
+a) <fileName> : it gives the file name containing the actual data; the definition can be applied to several
+data files and this tag should be specified for each data file;
+b) <description> : an optional tag that can provide a textual description;
+
+3. <specs_device>
 It enumerates the device IDs and its parent is <mutiplicityProbabilities>.
 It contains 2 mandatory child elements and one optional element:
 a) <devColName> : it gives the column name (in the csv file) of the device IDs;
 b) <devIDValues> : it enumerates the device IDs as a list where the items are strings separated by white spaces;
 c) <description> : an optional tag that can provide a textual description;
 
-3. <specs_prob>
+4. <specs_prob>
 It describes the method used to compute the multiplicity probabilities of the devices 
 and its parent is <multiplicityProbabilities>.
 It contains a set mandatory child elements and optional elements:
@@ -21,7 +28,7 @@ the xml file can contain 2 tags, multiProb2 and multiProb3, specifying the proba
 methodological framework allows maximum two devices per individual.
 b) <description> : an optional tag that can provide a textual description of a column;
 
-4. <specs_method>
+5. <specs_method>
 The specs_method element describes the method used to compute the mutiplicity probabilities of the mobile devices.
 The attribute name could have one of the two following values: "OnetoOne", or "oneToOneLambda", "Pairs", "Trajectory".
 

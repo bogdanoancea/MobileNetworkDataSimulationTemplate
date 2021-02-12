@@ -4,7 +4,16 @@ The content of this file defines the following elements:
 
 1. <nNetDistrib>
 This is the outermost element, it encloses the specificatons of other elements.
-2. <specs_time type=...> 
+
+2. <specs_file>
+It enumerates the file names to which the definition applies, and its parent is <nNetDistrib>.
+It contains at least 1 mandatory child element and one optional element:
+a) <fileName> : it gives the file name containing the actual data; the definition can be applied to several
+data files and this tag should be specified for each data file;
+b) <description> : an optional tag that can provide a textual description;
+
+
+3. <specs_time type=...> 
 It describes the time variable and its parent is <nNetDistrib>.
 The attribute type can have one of the two values: "Discrete"  or "Continous".
 a) type = "Discrete"
@@ -25,7 +34,7 @@ b4) <time_unit> : it gives the value time unit and it can have of of the followi
 b5) <description> : an optional tag that can provide a textual description;
 
 
-2. <specs_region>
+4. <specs_region>
 It enumerates the region IDs and its parent is <nNetDistrib>.
 It contains 2 mandatory child elements and one optional element:
 a) <regionColName> : it gives the column name (in the csv file) of the region IDs;
@@ -33,7 +42,7 @@ b) <regionIDValues> : it enumerates the region IDs as a list where the items are
 c) <description> : an optional tag that can provide a textual description;
 
 
-3. <specs_nNet>
+5. <specs_nNet>
 It specifies the column with the values of the random values generated from the distribution of the number of 
 individuals detected by the network; its parent is <nNetDistrib>.
 It contains 2 mandatory child elements and one optional element:
@@ -43,7 +52,7 @@ b) <value_type> : it specifies the type of the data on the column;
 c) <description> : an optional tag that can provide a textual description;
 
 
-4. <specs_iter>
+6. <specs_iter>
 It gives the index of the above mentioned andom values; its parent is <nNetDistrib>.
 It contains 2 mandatory child elements and one optional element:
 a) <iterColName> : it gives the column name of the index;

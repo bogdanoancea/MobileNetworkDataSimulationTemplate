@@ -4,10 +4,33 @@
 <xs:element name="regions">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="tileColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="tileIDValues" type="tilelist" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="regionIDValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		
+			<xs:element name="specs_tile" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="tileColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="tileIDValues" type="tilelist" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="specs_region" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="regionValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>			
 		</xs:sequence>
     </xs:complexType>
 </xs:element>

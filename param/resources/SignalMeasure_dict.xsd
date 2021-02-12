@@ -3,6 +3,15 @@
 <xs:element name="signal_measure">
 	<xs:complexType>
 		<xs:sequence>
+			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		
 			<xs:element name="specs_mno" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>

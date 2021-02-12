@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <nTargetOD>
+	<specs_file>
+		<fileName>NtargetOD_RSS-network_1to1.csv</fileName>
+	</specs_file>
 	<specs_time type="Discrete">
 		<timeFromColName>time_from</timeFromColName>
 		<timeToColName>time_from</timeToColName>

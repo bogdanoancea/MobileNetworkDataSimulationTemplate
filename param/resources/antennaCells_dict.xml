@@ -1,4 +1,7 @@
 <antenna_cells>
+	<specs_file>
+		<fileName>AntennaCells_MNO1.csv</fileName>
+	</specs_file>
 	<specs_mno>
 		<name>mno1</name>
 	</specs_mno>
