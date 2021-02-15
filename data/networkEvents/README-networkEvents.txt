@@ -14,22 +14,22 @@ b) <description> : an optional tag that can provide a textual description;
 
 3. <specs_time type=...> 
 It describes the timestamp variable and its parent is <networkEvents>.
-The attribute type can have one of the two values: "Discrete"  or "Continous".
+The attribute type can have one of the two values: "Discrete"  or "Continuous".
 a) type = "Discrete"
 In this case the <specs_time> element will contain the following 5 mandatory child elements and one optional element:
 a1) <timeColName> : it gives the column name (in the csv file) of the time variable;
-a2)	<time_start> : it gives the value of the initial time instant as a floating point value
-a3)	<time_end> : it gives the value of the final time instant as a floating point value
-a4) <time_increment> : it gives the value of the final time instant as a floating point value
-a5) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h
+a2)	<time_start> : it gives the value of the initial time instant as a floating point value;
+a3)	<time_end> : it gives the value of the final time instant as a floating point value;
+a4) <time_increment> : it gives the value of the final time instant as a floating point value;
+a5) <time_unit> : it gives the value time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
 a6) <description> : an optional tag that can provide a textual description;
 
-b) type = "Continous"
+b) type = "Continuous"
 In this case the <specs_time> element will contain the following 4 mandatory child elements and one optional element:
 b1) <timeColName> : it gives the column name (in the csv file) of the time variable;
 b2)	<time_start> : it gives the value of the initial time instant as a floating point value;
 b3)	<time_end> : it gives the value of the final time instant as a floating point value;
-b4) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
+b4) <time_unit> : it gives the value time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
 b5) <description> : an optional tag that can provide a textual description;
 
 4. <specs_event eventType = ...>
@@ -60,7 +60,7 @@ b8) <eventCodeValues> : it enumerates the possible values for the event code as 
 b9) <description> : an optional tag that can provide a textual description;
 
 5. <specs_device>
-It enumerates the device IDs and its parent is <posteriorLocationProbabilities>.
+It enumerates the device IDs and its parent is <networkEvents>.
 It contains 2 mandatory child elements and one optional element:
 a) <devColName> : it gives the column name (in the csv file) of the device IDs;
 b) <devIDValues> : it enumerates the device IDs as a list where the items are strings separated by white spaces;
@@ -69,7 +69,7 @@ c) <description> : an optional tag that can provide a textual description;
 6. <specs_coords CRSType= ...>
 It specifies the geographical coordinates of the location where the network events where generated.
 The atribute CRSType can have one of the two values: "None"  or "WGS84". In the first case no Coordinate Reference System
-is used and the x,y,z coordinates are simpple cartesian coordinates in meters. in the second case the WGS84 Coordinate Reference System
+is used and the x,y,z coordinates are simple cartesian coordinates in meters. In the second case the WGS84 Coordinate Reference System
 is used to give the network events geographical coordinates and the lat/long asystem is used.
 
 a)CRSType = None
@@ -88,7 +88,7 @@ b4) <description> : an optional tag that can provide a textual description;
 
 
 7. <specs_tile>
-It enumerates the tile IDs and its parent is <posteriorLocationProbabilities>.
+It enumerates the tile IDs and its parent is <networkEvents>.
 It contains 2 mandatory child elements and one optional element:
 a) <tileColName> : it gives the column name (in the csv file) of the tile IDs;
 b) <tileIDValues> : it enumerates the tile IDs as a list where the items are unsigned integers separated by white spaces;

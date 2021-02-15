@@ -68,14 +68,12 @@
 	<xs:list itemType="xs:unsignedLong" />
 </xs:simpleType>
 
-
 <xs:simpleType name="celltype">
 	<xs:restriction base="xs:string">
 		<xs:enumeration value="3G"/>
 		<xs:enumeration value="4G"/>
 	</xs:restriction>
 </xs:simpleType>
-
 
 <xs:simpleType name="eventCodeList">
 	<xs:list itemType="xs:integer"/>
@@ -95,7 +93,6 @@
 		<xs:enumeration value="Continous"/>
 	</xs:restriction>
 </xs:simpleType>
-
 
 <xs:complexType name="DiscreteTime">
 	<xs:complexContent>
@@ -120,7 +117,6 @@
 	</xs:complexContent>
 </xs:complexType>
 
-
 <xs:complexType name="ContinousTime">
 	<xs:complexContent>
 		<xs:extension base = "time_type">
@@ -141,7 +137,6 @@
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
-
 
 <xs:complexType name="event_type">
 	<xs:attribute name="eventType" type = "allowed-event-types"/>
@@ -197,7 +192,6 @@
 	</xs:restriction>
 </xs:simpleType>
 
-
 <xs:complexType name="NoCRS">
 	<xs:complexContent>
 		<xs:extension base = "coords_type">
@@ -210,7 +204,6 @@
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
-
 
 <xs:complexType name="WGS84CRS">
 	<xs:complexContent>
