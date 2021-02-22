@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:include schemaLocation = "https://github.com/bogdanoancea/MobileNetworkDataSimulationTemplate/blob/380930eb3d433fe8cdf188e500680d60453e706b/schema_definition/time.xsd"/>
+<xs:include schemaLocation = "https://github.com/bogdanoancea/MobileNetworkDataSimulationTemplate/blob/380930eb3d433fe8cdf188e500680d60453e706b/schemadefinition/time.xsd"/>
 
 <xs:element name="networkEvents">
 	<xs:complexType>
