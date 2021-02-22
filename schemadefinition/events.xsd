@@ -1,0 +1,53 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="celltype">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="3G"/>
+		<xs:enumeration value="4G"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="event_type">
+	<xs:attribute name="eventType" type = "allowed-event-types"/>
+</xs:complexType>
+
+<xs:simpleType name="allowed-event-types">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="CellID"/>
+		<xs:enumeration value="CellIDTA"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="CellIDEvent">
+	<xs:complexContent>
+		<xs:extension base = "event_type">
+			<xs:sequence>
+				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CellIDTAEvent">
+	<xs:complexContent>
+		<xs:extension base = "event_type">
+			<xs:sequence>
+				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TAColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="cellTypeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="cellTypeValues" type="celltype" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:extension>
+	</xs:complexContent>
+</xs:complexType>
+</xs:schema>
