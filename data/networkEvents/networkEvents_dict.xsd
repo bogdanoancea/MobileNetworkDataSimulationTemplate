@@ -1,72 +1,75 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:include schemaLocation = "https://github.com/bogdanoancea/MobileNetworkDataSimulationTemplate/blob/380930eb3d433fe8cdf188e500680d60453e706b/schema_definition/time.xsd"/>
 
 <xs:element name="networkEvents">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
+			<xs:element name = "specs_events" minOccurs="1" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+						<xs:element name="specs_file" minOccurs="1" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="specs_mno" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 
-			<xs:element name="specs_time" type="time_type" minOccurs="1" maxOccurs="1">
-				<xs:alternative test="@type ='Discrete'" type="DiscreteTime"/>
-				<xs:alternative test="@type ='Continous'" type="ContinousTime"/>				
+						<xs:element name="specs_time" type="time_type" minOccurs="1" maxOccurs="1">
+							<xs:alternative test="@type ='Discrete'" type="DiscreteTime"/>
+							<xs:alternative test="@type ='Continuous'" type="ContinuousTime"/>				
+						</xs:element>	
+
+						<xs:element name="specs_event" minOccurs="1" maxOccurs="1" type = "event_type">
+							<xs:alternative test="@eventType ='CellID'" type="CellIDEvent"/>
+							<xs:alternative test="@eventType ='CellIDTA'" type="CellIDTAEvent"/>				
+						</xs:element>
+
+
+						<xs:element name="specs_device" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+
+						<xs:element name="specs_coords" type="coords_type" minOccurs="1" maxOccurs="1">
+							<xs:alternative test="@CRSType ='None'" type="NoCRS"/>
+							<xs:alternative test="@CRSType ='WGS84'" type="WGS84CRS"/>				
+						</xs:element>
+
+
+						<xs:element name="specs_tile" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="tileColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						</xs:sequence>
+				</xs:complexType>
+
 			</xs:element>	
-
-			<xs:element name="specs_event" minOccurs="1" maxOccurs="1" type = "event_type">
-				<xs:alternative test="@eventType ='CellID'" type="CellIDEvent"/>
-				<xs:alternative test="@eventType ='CellIDTA'" type="CellIDTAEvent"/>				
-			</xs:element>
-
-
-			<xs:element name="specs_device" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="devIDValues" type="devlist" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-
-			<xs:element name="specs_coords" type="coords_type" minOccurs="1" maxOccurs="1">
-				<xs:alternative test="@CRSType ='None'" type="NoCRS"/>
-				<xs:alternative test="@CRSType ='WGS84'" type="WGS84CRS"/>				
-			</xs:element>
-
-
-			<xs:element name="specs_tile" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="tileColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="tileIDValues" type="tilelist" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-
-				
 			
 		</xs:sequence>
     </xs:complexType>
 </xs:element>
 
-<xs:simpleType name="devlist">
-	<xs:list itemType="xs:unsignedLong" />
-</xs:simpleType>
-
-<xs:simpleType name="celllist">
-	<xs:list itemType="xs:string" />
-</xs:simpleType>
-
-<xs:simpleType name="TAlist">
-	<xs:list itemType="xs:unsignedLong" />
-</xs:simpleType>
 
 <xs:simpleType name="celltype">
 	<xs:restriction base="xs:string">
@@ -75,68 +78,8 @@
 	</xs:restriction>
 </xs:simpleType>
 
-<xs:simpleType name="eventCodeList">
-	<xs:list itemType="xs:integer"/>
-</xs:simpleType>
 
-<xs:simpleType name="tilelist">
-	<xs:list itemType="xs:unsignedLong" />
-</xs:simpleType>
 
-<xs:complexType name="time_type">
-	<xs:attribute name="type" type = "allowed-time-types"/>
-</xs:complexType>
-
-<xs:simpleType name="allowed-time-types">
-	<xs:restriction base="xs:string">
-		<xs:enumeration value="Discrete"/>
-		<xs:enumeration value="Continous"/>
-	</xs:restriction>
-</xs:simpleType>
-
-<xs:complexType name="DiscreteTime">
-	<xs:complexContent>
-		<xs:extension base = "time_type">
-			<xs:sequence>
-				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
-				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_increment" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_unit" minOccurs="1" maxOccurs="1">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="s" />
-							<xs:enumeration value="m" />
-							<xs:enumeration value="h" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-			</xs:sequence>
-		</xs:extension>
-	</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="ContinousTime">
-	<xs:complexContent>
-		<xs:extension base = "time_type">
-			<xs:sequence>
-				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
-				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_unit" minOccurs="1" maxOccurs="1">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="s" />
-							<xs:enumeration value="m" />
-							<xs:enumeration value="h" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-			</xs:sequence>
-		</xs:extension>
-	</xs:complexContent>
-</xs:complexType>
 
 <xs:complexType name="event_type">
 	<xs:attribute name="eventType" type = "allowed-event-types"/>
@@ -154,9 +97,9 @@
 		<xs:extension base = "event_type">
 			<xs:sequence>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="cellIDValues" type="celllist" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="eventCodeValues" type="eventCodeList" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
@@ -168,13 +111,13 @@
 		<xs:extension base = "event_type">
 			<xs:sequence>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="cellIDValues" type="celllist" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="TAColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="TAValues" type="TAlist" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellTypeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellTypeValues" type="celltype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="eventCodeValues" type="eventCodeList" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
@@ -197,8 +140,11 @@
 		<xs:extension base = "coords_type">
 			<xs:sequence>
 				<xs:element name="xColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="yColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="zColName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
@@ -210,8 +156,11 @@
 		<xs:extension base = "coords_type">
 			<xs:sequence>
 				<xs:element name="latColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="longColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="zColName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
