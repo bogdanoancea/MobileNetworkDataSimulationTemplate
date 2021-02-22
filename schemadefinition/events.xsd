@@ -8,9 +8,6 @@
 	</xs:restriction>
 </xs:simpleType>
 
-
-
-
 <xs:complexType name="event_type">
 	<xs:attribute name="eventType" type = "allowed-event-types"/>
 </xs:complexType>
@@ -53,4 +50,4 @@
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
-<xs:schema>
+</xs:schema>
