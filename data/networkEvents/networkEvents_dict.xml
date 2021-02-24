@@ -7,6 +7,7 @@
 		<specs_mno>
 			<name> MNO1</name>
 		</specs_mno>
+		
 		<specs_time type="Discrete">
 			<timeColName>time</timeColName>
 			<time_start>0</time_start>
