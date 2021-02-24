@@ -17,11 +17,11 @@
 		<xs:extension base = "coords_type">
 			<xs:sequence>
 				<xs:element name="xColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="x_value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="yColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="y_value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="zColName" type="xs:string" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="value_type" type="coordtype" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="z_value_type" type="coordtype" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
@@ -33,11 +33,11 @@
 		<xs:extension base = "coords_type">
 			<xs:sequence>
 				<xs:element name="latColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="lat_value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="longColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="long_value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="zColName" type="xs:string" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="z_value_type" type="coordtype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
