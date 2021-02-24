@@ -29,7 +29,7 @@
 		<xs:extension base = "event_type">
 			<xs:sequence>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:element name="value_type" minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="string"/>
@@ -38,7 +38,7 @@
 					</xs:simpleType>
 				</xs:element>
 				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:element name="value_type" minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="string"/>
@@ -57,7 +57,7 @@
 		<xs:extension base = "event_type">
 			<xs:sequence>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:element name="value_type" minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="string"/>
@@ -66,7 +66,7 @@
 					</xs:simpleType>
 				</xs:element>
 				<xs:element name="TAColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:element name="value_type"  minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="long"/>
@@ -77,7 +77,7 @@
 				<xs:element name="cellTypeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellTypeValues" type="celltype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:element name="value_type" minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="string"/>
