@@ -3,8 +3,13 @@
 
 <xs:simpleType name="celltype">
 	<xs:restriction base="xs:string">
+		<xs:enumeration value="2G"/>
 		<xs:enumeration value="3G"/>
 		<xs:enumeration value="4G"/>
+		<xs:enumeration value="5G"/>
+		<xs:enumeration value="LTE"/>
+		<xs:enumeration value="UMTS"/>
+		<xs:enumeration value="CDMA"/>
 	</xs:restriction>
 </xs:simpleType>
 
@@ -24,9 +29,23 @@
 		<xs:extension base = "event_type">
 			<xs:sequence>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="string"/>
+							<xs:enumeration value="integer"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="string"/>
+							<xs:enumeration value="integer"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
@@ -38,13 +57,34 @@
 		<xs:extension base = "event_type">
 			<xs:sequence>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="string"/>
+							<xs:enumeration value="integer"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="TAColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="long"/>
+							<xs:enumeration value="integer"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="cellTypeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellTypeValues" type="celltype" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="eventCodeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="value_type" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="string"/>
+							<xs:enumeration value="integer"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
