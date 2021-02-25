@@ -1,26 +1,14 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/file.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/device.xsd"/>
 
 <xs:element name="multiplicityProbabilities">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="specs_device" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="devColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="devIDValues" type="devlist" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element name="specs_file" type = "file_type" minOccurs="1" maxOccurs="unbounded"/>
+		
+			<xs:element name="specs_device" type = "device_type" minOccurs="1" maxOccurs="1"/>
 			
 			<xs:element name = "specs_prob">
 				<xs:complexType>
@@ -40,11 +28,6 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
-
-
-<xs:simpleType name="devlist">
-	<xs:list itemType="xs:unsignedLong" />
-</xs:simpleType>
 
 
 <xs:complexType name="multiProbMethod">
