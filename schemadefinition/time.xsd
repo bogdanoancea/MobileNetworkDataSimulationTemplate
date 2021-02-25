@@ -77,7 +77,7 @@
 	</xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="ContinuousTimetoFrom">
+<xs:complexType name="ContinuousTimeToFrom">
 	<xs:complexContent>
 		<xs:extension base = "timeToFrom_type">
 			<xs:sequence>
