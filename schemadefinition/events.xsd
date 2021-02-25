@@ -29,7 +29,6 @@
 	<xs:complexContent>
 		<xs:extension base = "event_type">
 			<xs:sequence>
-				<xs:element type = "cellID_type" ref = cellIDEvent"/>
 				<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="cellID_value_type" minOccurs="1" maxOccurs="1">
 					<xs:simpleType>
