@@ -20,9 +20,8 @@
 <xs:complexType name="cellIDToFrom_type">
 	<xs:sequence>
 		<xs:element name="cellIDFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-		<xs:element name="cellIDFrom_value_type" type = "cellID_value_type" minOccurs="1" maxOccurs="1"/>
 		<xs:element name="cellIDFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-		<xs:element name="cellIDTo_value_type" type = "cellID_value_type" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="cellID_value_type" type = "cellID_value_type" minOccurs="1" maxOccurs="1"/>
 	</xs:sequence>
 </xs:complexType>
 </xs:schema>
