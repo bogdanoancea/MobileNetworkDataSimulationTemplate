@@ -5,6 +5,8 @@
 <xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/device.xsd"/>
 <xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/tile.xsd"/>
 <xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/mno.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/file.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/cellid.xsd"/>
 
 <xs:element name="eventLocationProbabilities">
 	<xs:complexType>
@@ -23,22 +25,7 @@
 
 						<xs:element name="specs_tile" type = "tile_type" minOccurs="1" maxOccurs="1"/>
 
-						<xs:element name="specs_cells" minOccurs="1" maxOccurs="1">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="cellIDColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="cellID_value_type" minOccurs="1" maxOccurs="1">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="string"/>
-												<xs:enumeration value="integer"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-							
+						<xs:element name="specs_cells" type = "cellID_type" minOccurs="1" maxOccurs="1"/>
 					
 						<xs:element name="specs_prob" minOccurs="1" maxOccurs="1">
 							<xs:complexType>
