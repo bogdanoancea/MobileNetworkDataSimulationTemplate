@@ -4,8 +4,8 @@
 	<xs:attribute name="type" type = "allowed-time-types"/>
 </xs:complexType>
 
-<xs:complexType name="timeToFrom_type">
-	<xs:attribute name="type" type = "allowed-timeToFrom-types"/>
+<xs:complexType name="timeFromTo_type">
+	<xs:attribute name="type" type = "allowed-timeFromTo-types"/>
 </xs:complexType>
 
 
@@ -16,10 +16,10 @@
 	</xs:restriction>
 </xs:simpleType>
 
-<xs:simpleType name="allowed-timeToFrom-types">
+<xs:simpleType name="allowed-timeFromTo-types">
 	<xs:restriction base="xs:string">
-		<xs:enumeration value="DiscreteToFrom"/>
-		<xs:enumeration value="ContinuousToFrom"/>
+		<xs:enumeration value="DiscreteFromTo"/>
+		<xs:enumeration value="ContinuousFromTo"/>
 	</xs:restriction>
 </xs:simpleType>
 
@@ -47,9 +47,9 @@
 	</xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="DiscreteTimeToFrom">
+<xs:complexType name="DiscreteTimeFromTo">
 	<xs:complexContent>
-		<xs:extension base = "timeToFrom_type">
+		<xs:extension base = "timeFromTo_type">
 			<xs:sequence>
 				<xs:element name="timeFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="timeToColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
@@ -77,9 +77,9 @@
 	</xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="ContinuousTimeToFrom">
+<xs:complexType name="ContinuousTimeFromTo">
 	<xs:complexContent>
-		<xs:extension base = "timeToFrom_type">
+		<xs:extension base = "timeFromTo_type">
 			<xs:sequence>
 				<xs:element name="timeFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="timeToColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
