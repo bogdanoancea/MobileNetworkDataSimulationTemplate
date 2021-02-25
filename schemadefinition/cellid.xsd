@@ -17,7 +17,7 @@
 </xs:complexType>
 							
 							
-<xs:complexType name="cellIDToFrom_type">
+<xs:complexType name="cellIDFromTo_type">
 	<xs:sequence>
 		<xs:element name="cellIDFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 		<xs:element name="cellIDToColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
