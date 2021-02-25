@@ -71,7 +71,7 @@
 				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
 				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_unit" type = time_units" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="time_unit" type = "time_units" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:extension>
 	</xs:complexContent>
