@@ -23,7 +23,7 @@
 	<xs:sequence>
 		<xs:element name="regionFromColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
 		<xs:element name="regionToColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-		<xs:element name="regionID_value_type" type = "tileID_type" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="regionID_value_type" type = "regionID_type" minOccurs="1" maxOccurs="1"/>
 		<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 	</xs:sequence>
 </xs:complexType>
