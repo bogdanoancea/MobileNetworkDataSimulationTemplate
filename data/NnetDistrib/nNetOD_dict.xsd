@@ -35,8 +35,8 @@
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="specs_iter" type = iter_type" minOccurs="1" maxOccurs="1"/>
-			</xs:element>
+			<xs:element name="specs_iter" type = "iter_type" minOccurs="1" maxOccurs="1"/>
+			
 		</xs:sequence>
     </xs:complexType>
 </xs:element>

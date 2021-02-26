@@ -3,7 +3,7 @@
 	<specs_file>
 		<fileName>NnetOD_RSS-network_1to1.csv</fileName>
 	</specs_file>
-	<specs_time type="Discrete">
+	<specs_time type="DiscreteFromTo">
 		<timeFromColName>time_from</timeFromColName>
 		<timeToColName>time_from</timeToColName>
 		<time_start>0</time_start>
@@ -14,11 +14,11 @@
 	<specs_region>
 		<regionFromColName>region_from</regionFromColName>
 		<regionToColName>region_from</regionToColName>
-		<regionID_value_type>1 2 3 4 5 6 7 8 9 10</regionID_value_type>
+		<regionID_value_type>unsignedInt</regionID_value_type>
 	</specs_region>
 	<specs_nNetOD>
 		<nNetODColName>nNet</nNetODColName>
-		<nNetOD_value_type>decimal</value_type>
+		<nNetOD_value_type>decimal</nNetOD_value_type>
 	</specs_nNetOD>
 	<specs_iter>
 		<iterColName>iter_count</iterColName>
