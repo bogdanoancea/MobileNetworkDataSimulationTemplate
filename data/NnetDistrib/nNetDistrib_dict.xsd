@@ -3,6 +3,7 @@
 <xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/file.xsd"/>
 <xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/time.xsd"/>
 <xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/region.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/iter.xsd"/>
 
 <xs:element name="nNetDistrib">
 	<xs:complexType>
@@ -33,15 +34,7 @@
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="specs_iter" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="iterColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="noIterValue" type="xs:unsignedLong" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element name="specs_iter" type = "iter_type" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
     </xs:complexType>
 </xs:element>

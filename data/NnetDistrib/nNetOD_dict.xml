@@ -14,11 +14,11 @@
 	<specs_region>
 		<regionFromColName>region_from</regionFromColName>
 		<regionToColName>region_from</regionToColName>
-		<regionValues>1 2 3 4 5 6 7 8 9 10</regionValues>
+		<regionID_value_type>1 2 3 4 5 6 7 8 9 10</regionID_value_type>
 	</specs_region>
 	<specs_nNetOD>
 		<nNetODColName>nNet</nNetODColName>
-		<value_type>decimal</value_type>
+		<nNetOD_value_type>decimal</value_type>
 	</specs_nNetOD>
 	<specs_iter>
 		<iterColName>iter_count</iterColName>
