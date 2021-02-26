@@ -1,6 +1,8 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/file.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/time.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/region.xsd"/>
 
 <xs:element name="nNetDistrib">
 	<xs:complexType>
@@ -9,18 +11,10 @@
 
 			<xs:element name="specs_time" type="time_type" minOccurs="1" maxOccurs="1">
 				<xs:alternative test="@type ='Discrete'" type="DiscreteTime"/>
-				<xs:alternative test="@type ='Continous'" type="ContinousTime"/>				
+				<xs:alternative test="@type ='Continous'" type="ContinuousTime"/>				
 			</xs:element>	
 
-			<xs:element name="specs_region" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="regionValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element name="specs_region" type = "region_type" minOccurs="1" maxOccurs="1"/>
 
 			<xs:element name="specs_nNet" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
@@ -51,14 +45,5 @@
 		</xs:sequence>
     </xs:complexType>
 </xs:element>
-
-
-
-<xs:simpleType name="regionlist">
-	<xs:list itemType="xs:unsignedLong" />
-</xs:simpleType>
-
-
-
 
 </xs:schema>
