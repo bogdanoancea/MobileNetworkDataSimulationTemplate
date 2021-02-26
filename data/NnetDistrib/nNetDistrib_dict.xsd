@@ -1,17 +1,11 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/file.xsd"/>
 
 <xs:element name="nNetDistrib">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element name="specs_file" type = "file_type" minOccurs="1" maxOccurs="unbounded"/>
 
 			<xs:element name="specs_time" type="time_type" minOccurs="1" maxOccurs="1">
 				<xs:alternative test="@type ='Discrete'" type="DiscreteTime"/>
@@ -64,62 +58,6 @@
 	<xs:list itemType="xs:unsignedLong" />
 </xs:simpleType>
 
-<xs:complexType name="time_type">
-	<xs:attribute name="type" type = "allowed-time-types"/>
-</xs:complexType>
-
-<xs:simpleType name="allowed-time-types">
-	<xs:restriction base="xs:string">
-		<xs:enumeration value="Discrete"/>
-		<xs:enumeration value="Continous"/>
-	</xs:restriction>
-</xs:simpleType>
-
-
-<xs:complexType name="DiscreteTime">
-	<xs:complexContent>
-		<xs:extension base = "time_type">
-			<xs:sequence>
-				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
-				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_increment" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_unit" minOccurs="1" maxOccurs="1">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="s" />
-							<xs:enumeration value="m" />
-							<xs:enumeration value="h" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-			</xs:sequence>
-		</xs:extension>
-	</xs:complexContent>
-</xs:complexType>
-
-
-<xs:complexType name="ContinousTime">
-	<xs:complexContent>
-		<xs:extension base = "time_type">
-			<xs:sequence>
-				<xs:element name="timeColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_start" type="xs:decimal" minOccurs="1" maxOccurs="1" />
-				<xs:element name="time_end" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="time_unit" minOccurs="1" maxOccurs="1">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="s" />
-							<xs:enumeration value="m" />
-							<xs:enumeration value="h" />
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-			</xs:sequence>
-		</xs:extension>
-	</xs:complexContent>
-</xs:complexType>
 
 
 

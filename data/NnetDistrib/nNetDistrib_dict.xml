@@ -17,7 +17,7 @@
 	<specs_nNet>
 		<nNetColName>nNet</nNetColName>
 		<value_type>decimal</value_type>
-		<description>These are the random values generated from the distribution of the number of individula detected by the network</description>	
+		<description>These are the random values generated from the distribution of the number of individuals detected by the network</description>	
 	</specs_nNet>
 	<specs_iter>
 		<iterColName>iter_count</iterColName>
