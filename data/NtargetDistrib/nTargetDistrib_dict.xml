@@ -12,11 +12,11 @@
 	</specs_time>
 	<specs_region>
 		<regionColName>region</regionColName>
-		<regionValues>1 2 3 4 5 6 7 8 9 10</regionValues>
+		<regionID_value_type>unsignedInt</regionID_value_type>
 	</specs_region>
 	<specs_nTarget>
 		<nTargetColName>nPop</nTargetColName>
-		<value_type>decimal</decimal>
+		<nTarget_value_type>decimal</nTarget_value_type>
 		<description>These are the random values generated from the distribution of the target number of individuals.</description>	
 	</specs_nTarget>
 	<specs_iter>
