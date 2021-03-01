@@ -1,13 +1,21 @@
-<penetration_rate>
-	<specs_file>
-		<fileName>pentrRate.csv</fileName>
-	</specs_file>
-	<specs_region>
-		<regionColName>region</regionColName>
-		<regionValues>1 2 3 4 5 6 7 8 9 10</regionValues>
-	</specs_region>
-	<specs_pntRate>
-		<pntRateColName>pntRate</pntRateColName>
-		<value_type>decimal</value_type>
-	</specs_pntRate>
-</penetration_rate>
+<penetration_rates>
+	<specs_rates>	
+		<specs_file>
+			<fileName>pentrRate.csv</fileName>
+		</specs_file>
+		<specs_mno>
+			<name> MNO1</name>
+		</specs_mno>
+
+		<specs_region>
+			<regionColName>region</regionColName>
+			<regionID_value_type>unsignedInt</regionID_value_type>
+		</specs_region>
+		
+		<specs_pntRate>
+			<pntRateColName>pntRate</pntRateColName>
+			<pntRate_value_type>decimal</pntRate_value_type>
+		</specs_pntRate>
+	</specs_rates>
+	
+</penetration_rates>

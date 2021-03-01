@@ -1,36 +1,22 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/file.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/region.xsd"/>
 <xs:element name="population_register">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		
-			<xs:element name="specs_region" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="regionColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="regionValues" type="regionlist" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>			
-			
-			<xs:element name = "specs_popReg minOccurs="1" maxOccurs="1">
+			<xs:element name="specs_file" type = "file_type" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="specs_region" type = "region_type" minOccurs="1" maxOccurs="1"/>	
+			<xs:element name = "specs_popReg" minOccurs="1" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="popRegColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="value_type" minOccurs="1" maxOccurs="1">
+						<xs:element name="popReg_value_type" minOccurs="1" maxOccurs="1">
 							<xs:simpleType>	
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="integer"/>
+									<xs:enumeration value="unsignedInt"/>
+									<xs:enumeration value="unsignedLong"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>

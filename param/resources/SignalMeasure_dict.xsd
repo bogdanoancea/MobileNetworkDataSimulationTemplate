@@ -1,52 +1,28 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/file.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/mno.xsd"/>
+<xs:include schemaLocation = "https://raw.githubusercontent.com/bogdanoancea/MobileNetworkDataSimulationTemplate/master/schemadefinition/cellid.xsd"/>
+
 <xs:element name="signal_measure">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="specs_file", minOccurs="1" maxOccurs="unbounded">
+			<xs:element name = "specs_measure">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="fileName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="specs_file" type = "file_type" minOccurs="1" maxOccurs="unbounded"/>
+						<xs:element name="specs_mno" type = "mno_type" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="specs_cellIDs" type = "cellID_type" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="specs_signal" type="signal_type" minOccurs="1" maxOccurs="1">
+							<xs:alternative test="@type ='RSS'" type="SignalRSS"/>
+							<xs:alternative test="@type ='SDM'" type="SignalSDM"/>				
+						</xs:element>	
 					</xs:sequence>
 				</xs:complexType>
-			</xs:element>
-		
-			<xs:element name="specs_mno" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-
-			<xs:element name="specs_antenna" minOccurs="1" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="antennaColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="antennaIDValues" type="antennalist" minOccurs="1" maxOccurs="1"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-
-			<xs:element name="specs_signal" type="signal_type" minOccurs="1" maxOccurs="1">
-				<xs:alternative test="@type ='RSS'" type="SignalRSS"/>
-				<xs:alternative test="@type ='SDM'" type="SignalSDM"/>				
-			</xs:element>	
-
-			
+			</xs:element>		
 		</xs:sequence>
     </xs:complexType>
 </xs:element>
-
-<xs:simpleType name="antennalist">
-	<xs:list itemType="xs:unsignedLong" />
-</xs:simpleType>
-
-<xs:simpleType name="tilelist">
-	<xs:list itemType="xs:unsignedLong" />
-</xs:simpleType>
-
 
 <xs:complexType name="signal_type">
 	<xs:attribute name="type" type = "allowed-signal-types"/>
@@ -63,9 +39,8 @@
 	<xs:complexContent>
 		<xs:extension base = "signal_type">
 			<xs:sequence>
-				<xs:element name="signalColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="tileIDValues" type="tilelist" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" minOccurs="1" maxOccurs="1">
+				<xs:element name="signalColName" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="signal_value_type" minOccurs="1" maxOccurs="unbounded">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="decimal" />
@@ -83,9 +58,8 @@
 	<xs:complexContent>
 		<xs:extension base = "signal_type">
 			<xs:sequence>
-				<xs:element name="signalColName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="tileIDValues" type="tilelist" minOccurs="1" maxOccurs="1"/>
-				<xs:element name="value_type" minOccurs="1" maxOccurs="1">
+				<xs:element name="signalColName" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="signal_value_type" minOccurs="1" maxOccurs="unbounded">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="decimal" />
@@ -98,5 +72,4 @@
 		</xs:extension>
 	</xs:complexContent>
 </xs:complexType>
-
 </xs:schema>

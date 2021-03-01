@@ -2,12 +2,12 @@
 	<specs_file>
 		<fileName>popRegister.csv</fileName>
 	</specs_file>
-    <specs_region>
+	<specs_region>
 		<regionColName>region</regionColName>
-		<regionValues>1 2 3 4 5 6 7 8 9 10</regionValues>
+		<regionID_value_type>unsignedInt</regionID_value_type>
 	</specs_region>
 	<specs_popReg>
 		<popRegColName>Nreg</popRegColName>
-		<value_type>integer</value_type>
+		<popReg_value_type>integer</popReg_value_type>
 	</specs_popReg>
 </population_register>
