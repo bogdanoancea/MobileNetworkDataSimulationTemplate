@@ -21,8 +21,8 @@
 	</specs_time>
 
 	<specs_tile>
-		<tileFromColName>tile</tileFromColName>
-		<tileToColName>tile</tileToColName>
+		<tileFromColName>tile_from</tileFromColName>
+		<tileToColName>tile_to</tileToColName>
 		<tileID_value_type>unsignedInt</tileID_value_type>
 	</specs_tile>
 
