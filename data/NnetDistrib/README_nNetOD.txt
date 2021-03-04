@@ -49,7 +49,7 @@ It specifies the column with the random values generated from the distribution o
 individuals moving from one region to another and its parent is <nNetOD>.
 It contains two mandatory child elements and one optional element:
 a) <nNetODColName> : mandatory, it gives the column name for the random values generated from the distribution of the number of individuals detected by the network;
-b) <nNetODvalue_type> : mandatory, it specifies the type of the data on the column an dit could take one of the following values: decimal, integer;
+b) <nNetODvalue_type> : mandatory, it specifies the type of the data on the column and it could take one of the following values: decimal, integer;
 c) <description> : an optional tag that can provide a textual description;
 
 
