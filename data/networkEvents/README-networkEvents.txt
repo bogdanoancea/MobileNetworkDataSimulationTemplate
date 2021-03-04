@@ -5,109 +5,105 @@ The content of this file defines the following elements:
 This is the outermost element, it encloses the specificatons of other elements.
 
 2. <specs_events>
-This tag encloses the events definition for a set of files sharing a common structure, comming from an MNO and its 
-parent is <networkEvents>.
-If there are several datasets with different structures a <specs_events> should be added for each dataset.
+This tag encloses the events definition for a set of files sharing a common structure, comming from an MNO and its parent is <networkEvents>.
+If there are several datasets with different structures a <specs_events> tag should be added for each dataset.
 The <specs_events> contains the following tags:
 
 2.1 <specs_file>
 It enumerates the file names to which the definition applies, and its parent is <specs_events>.
-It contains at least 1 mandatory child element and one optional element:
-a) <fileName> : it gives the file name containing the actual data; the definition can be applied to several
-data files and this tag should be specified for each data file;
-b) <description> : an optional tag that can provide a textual description;
+It contains at least one mandatory child element and one optional element:
+a) <fileName> : mandatory, it gives the file name containing the actual data; the definition can be applied to several data files and this tag should be specified for each data file;
+b) <description> : an optional tag that can provide a textual description of the files;
 
 2.2 <specs_mno>
-It specifies the MNO which provided this daatset and its parent is <specs_events>.
+It specifies the MNO which provided this dataset and its parent is <specs_events>.
 It contains one mandatory child element and one optional element:
-a) <name> : it gives MNO name;
+a) <name> : mandatory, it gives MNO name;
 b) <description> : an optional tag that can provide a textual description of the MNO;
 
 2.3. <specs_time type=...> 
-It describes the timestamp variable and its parent is <specs_events>.
-The attribute type can have one of the two values: "Discrete"  or "Continuous".
+It describes the timestamp variable of the network events and its parent is <specs_events>.
+The attribute "type" can have one of the two values: "Discrete"  or "Continuous".
 a) type = "Discrete"
-In this case the <specs_time> element will contain the following 5 mandatory child elements and one optional element:
-a1) <timeColName> : it gives the column name (in the csv file) of the time variable;
-a2)	<time_start> : it gives the value of the initial time instant as a floating point value;
-a3)	<time_end> : it gives the value of the final time instant as a floating point value;
-a4) <time_increment> : it gives the value of the final time instant as a floating point value;
-a5) <time_unit> : it gives the value time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
-a6) <description> : an optional tag that can provide a textual description;
+In this case the <specs_time> element will contain the following five mandatory child elements and one optional element:
+a1) <timeColName> : mandatory, it gives the column name (in the csv file) of the time variable;
+a2)	<time_start> : mandatory, it gives the value of the initial time instant as a floating point value;
+a3)	<time_end> : mandatory, it gives the value of the final time instant as a floating point value;
+a4) <time_increment> : mandatory, it gives the value of the final time instant as a floating point value;
+a5) <time_unit> : mandatory, it gives the value of the time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
+a6) <description> : an optional tag that can provide a textual description for the timestamp variable;
 
 b) type = "Continuous"
-In this case the <specs_time> element will contain the following 4 mandatory child elements and one optional element:
-b1) <timeColName> : it gives the column name (in the csv file) of the time variable;
-b2)	<time_start> : it gives the value of the initial time instant as a floating point value;
-b3)	<time_end> : it gives the value of the final time instant as a floating point value;
-b4) <time_unit> : it gives the value time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
-b5) <description> : an optional tag that can provide a textual description;
+In this case the <specs_time> element will contain the following four mandatory child elements and one optional element:
+b1) <timeColName> : mandatory, it gives the column name (in the csv file) of the time variable;
+b2)	<time_start> : mandatory, it gives the value of the initial time instant as a floating point value;
+b3)	<time_end> : mandatory, it gives the value of the final time instant as a floating point value;
+b4) <time_unit> : mandatory, it gives the value time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
+b5) <description> : an optional tag that can provide a textual description for the timestamp variable;
 
 2.4. <specs_event eventType = ...>
-It describes the events captured by the network and its parent is <specs_events>.
-The attribute eventType can have one of the two values: "CellID"  or "CellIDTA". In the first case a network event is 
-represented by the ID of the cell where the mobile device was detected and in the second case, besides the ID of the cell
-the time advancing variable (TA) is also stored by the network together with the cell type (to correctly interpret the value
-of tha TA).
+It describes the network events captured by the mobile network and its parent is <specs_events>.
+The attribute "eventType" can have one of the two values: "CellID"  or "CellIDTA". In the first case a network event is represented by the ID of the cell where the mobile device was detected and in the second case, besides the ID of the cell
+the time advancing variable (TA) is also stored by the network together with the cell type (to correctly interpret the value of tha TA).
 
 a) eventType = "CellID"
-In this case the <specs_event> element will contain the following 4 mandatory child elements and one optional element:
-a1) <cellIDColName> : it gives the column name (in the csv file) of the cell ID;
-a2) <cellID_value_type> : it gives the type of the data on cell ID column and currently it supports two values: integer or string;
-a3) <eventCodeColName> : it gives the column name (in the csv file) of the event code (an integer);
-a4) <eventCode_value_type> : it gives the type of the data on Event Code column and currently it supports two values: integer or string;
+In this case the <specs_event> element will contain the following four mandatory child elements and one optional element:
+a1) <cellIDColName> : mandatory, it gives the column name (in the csv file) of the cell ID;
+a2) <cellID_value_type> : mandatory, it gives the type of the data on cell ID column and currently it supports two values: integer or string;
+a3) <eventCodeColName> : mandatory, it gives the column name (in the csv file) of the event code;
+a4) <eventCode_value_type> : mandatory, it gives the type of the data on Event Code column and currently it supports two values: integer or string;
 a5) <description> : an optional tag that can provide a textual description;
 
 b) eventType = "CellIDTA"
-In this case the <specs_event> element will contain the following 8 mandatory child elements and one optional element:
-b1) <cellIDColName> : it gives the column name (in the csv file) of the cell ID;
-b2) <cellID_value_type> : it gives the type of the data on cell ID column and currently it supports two values: integer or string;
-b3) <TAColName> : it gives the column name (in the csv file) of the TA variable;
-b4) <TA_value_type> : it gives the type of the data on cell ID column and currently it supports two values: integer or long;
-b5) <cellTypeColName> : it gives the column name (in the csv file) of the cell type variable;
-b6) <cellTypeValues> : it enumerates the possible values for the cell type; the only valid values are "2G", "3G", "4G", "5G", "LTE", "UMTS", "CDMA";
-b7) <eventCodeColName> : it gives the column name (in the csv file) of the event code (an integer);
-b8) <eventCode_value_type> : it gives the type of the data on Event Code column and currently it supports two values: integer or string;
+In this case the <specs_event> element will contain the following eight mandatory child elements and one optional element:
+b1) <cellIDColName> : mandatory, it gives the column name (in the csv file) of the cell ID;
+b2) <cellID_value_type> : mandatory, it gives the type of the data on cell ID column and currently it supports two values: integer or string;
+b3) <TAColName> : mandatory, it gives the column name (in the csv file) of the TA variable;
+b4) <TA_value_type> : mandatory, it gives the type of the data on cell ID column and currently it supports two values: integer or long;
+b5) <cellTypeColName> : mandatory, it gives the column name (in the csv file) of the cell type variable;
+b6) <cellTypeValues> : mandatory, it enumerates the possible values for the cell type; the only valid values are "2G", "3G", "4G", "5G", "LTE", "UMTS", "CDMA";
+b7) <eventCodeColName> : mandatory, it gives the column name (in the csv file) of the event code;
+b8) <eventCode_value_type> : mandatory, it gives the type of the data on Event Code column and currently it supports two values: integer or string;
 b9) <description> : an optional tag that can provide a textual description;
 
 2.5. <specs_device>
 It enumerates the device IDs and its parent is <specs_events>.
-It contains 2 mandatory child elements and one optional element:
-a) <devColName> : it gives the column name (in the csv file) of the device IDs;
-b) <devID_value_type> : it gives the type of the values of the device IDs and it support the following values: string and integer;
+It contains two mandatory child elements and one optional element:
+a) <devColName> : mandatory, it gives the column name (in the csv file) of the device IDs;
+b) <devID_value_type> : mandatory, it gives the type of the values of the device IDs and it supports the following values: string and integer;
 c) <description> : an optional tag that can provide a textual description;
 
 2.6. <specs_coords CRSType= ...>
 It specifies the geographical coordinates of the location where the network events where generated.
-The atribute CRSType can have one of the two values: "None"  or "WGS84". In the first case no Coordinate Reference System
-is used and the x,y,z coordinates are simple cartesian coordinates in meters. In the second case the WGS84 Coordinate Reference System
+The atribute "CRSType" can have one of the two values: "None"  or "WGS84". In the first case no Coordinate Reference System
+is used and the x, y, z coordinates are simple cartesian coordinates in meters. In the second case the WGS84 Coordinate Reference System
 is used to give the network events geographical coordinates and the lat/long system is used.
 Its parent is <specs_events>.
 
 a)CRSType = None
-In this case the <specs_coords> element will contain the following 4 mandatory child elements and 3 optional elements:
-a1) <xColName> : it gives the column name (in the csv file) of the x coordinate;
-a2) <x_value_type> : it gives the type of the X coordinate values: decimal, integer or long;
-a3) <yColName> : it gives the column name (in the csv file) of the y coordinate;
-a4) <y_value_type> : it gives the type of the Y coordinate values: decimal, integer or long;
+In this case the <specs_coords> element will contain the following four mandatory child elements and three optional elements:
+a1) <xColName> : mandatory, it gives the column name (in the csv file) of the x coordinate;
+a2) <x_value_type> : mandatory, it gives the type of the x coordinate values: decimal, integer or long;
+a3) <yColName> : mandatory, it gives the column name (in the csv file) of the y coordinate;
+a4) <y_value_type> : mandatory, it gives the type of the y coordinate values: decimal, integer or long;
 a5) <zColName> : optional, it gives the column name (in the csv file) of the z coordinate
-a6) <z_value_type> : it gives the type of the Z coordinate values: decimal, integer or long;
+a6) <z_value_type> : optional, it gives the type of the z coordinate values: decimal, integer or long;
 a7) <description> : an optional tag that can provide a textual description;
 
 b)CRSType = WGS84
-In this case the <specs_coords> element will contain the following 4 mandatory child elements and 3 optional elements:
-b1) <latColName> : it gives the column name (in the csv file) of the latitude;
-b2) <lat_value_type> : it gives the type of the lat coordinate values: decimal, integer or long;
-b3) <longColName> : it gives the column name (in the csv file) of the longitute;
-b4) <long_value_type> : it gives the type of the long coordinate values: decimal, integer or long;
+In this case the <specs_coords> element will contain the following four mandatory child elements and three optional elements:
+b1) <latColName> : mandatory, it gives the column name (in the csv file) of the latitude;
+b2) <lat_value_type> : mandatory, it gives the type of the lat coordinate values: decimal, integer or long;
+b3) <longColName> : mandatory, it gives the column name (in the csv file) of the longitute;
+b4) <long_value_type> : mandatory, it gives the type of the long coordinate values: decimal, integer or long;
 b5) <zColName> : optional, it gives the column name (in the csv file) of the z coordinate
-b6) <z_value_type> : it gives the type of the z coordinate values: decimal, integer or long;
+b6) <z_value_type> : optional, it gives the type of the z coordinate values: decimal, integer or long;
 b7) <description> : an optional tag that can provide a textual description;
 
 
 2.7. <specs_tile>
 It enumerates the tile IDs and its parent is <specs_events>.
-It contains 2 mandatory child elements and one optional element:
-a) <tileColName> : it gives the column name (in the csv file) of the tile IDs;
-b) <tileID_value_type> : it give the data type of the tile IDs and it can be: unsignedInt, unsignedLong, nonNegativeInteger;
+It contains two mandatory child elements and one optional element:
+a) <tileColName> : mandatory, it gives the column name (in the csv file) of the tile IDs;
+b) <tileID_value_type> : mandatory, it give the data type of the tile IDs and it can be: unsignedInt, unsignedLong, nonNegativeInteger;
 c) <description> : an optional tag that can provide a textual description;
