@@ -9,13 +9,13 @@ This tag encloses the events definition for a set of files sharing a common stru
 If there are several datasets with different structures a <specs_events> tag should be added for each dataset.
 The <specs_events> contains the following tags:
 
-2.1 <specs_file>
+2.1. <specs_file>
 It enumerates the file names to which the definition applies, and its parent is <specs_events>.
 It contains at least one mandatory child element and one optional element:
 a) <fileName> : mandatory, it gives the file name containing the actual data; the definition can be applied to several data files and this tag should be specified for each data file;
 b) <description> : an optional tag that can provide a textual description of the files;
 
-2.2 <specs_mno>
+2.2. <specs_mno>
 It specifies the MNO which provided this dataset and its parent is <specs_events>.
 It contains one mandatory child element and one optional element:
 a) <name> : mandatory, it gives MNO name;
