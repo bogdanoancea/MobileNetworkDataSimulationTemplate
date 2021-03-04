@@ -36,7 +36,7 @@ In this case the <specs_time> element will contain the following five mandatory 
 a1) <timeColName> : mandatory, it gives the column name (in the csv file) of the time variable;
 a2)	<time_start> : mandatory, it gives the value of the initial time instant as a floating point value;
 a3)	<time_end> : mandatory, it gives the value of the final time instant as a floating point value;
-a4) <time_increment> : mandatory, it gives the value of the final time instant as a floating point value;
+a4) <time_increment> : mandatory, it gives the value of the time increment as a floating point value;
 a5) <time_unit> : mandatory, it gives the value of the time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
 a6) <description> : an optional tag that can provide a textual description for the timestamp variable;
 
