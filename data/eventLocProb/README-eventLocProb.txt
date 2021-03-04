@@ -60,7 +60,7 @@ c) <description> : an optional tag that can provide a textual description;
 It specifies the cell ID where the mobile device was detected at certain time instant and its parent is <specs_eventLocProbs>.
 It contains two mandatory child elements and one optional elements.
 a) <cellIDColName> : mandatory, it gives the cell ID where the mobile device was detected;
-b) <cellID_value_type> : mandatory, it the data type of the cell IDs and it can bestring or integer;
+b) <cellID_value_type> : mandatory, it the data type of the cell IDs and it can be string or integer;
 c) <description> : an optional tag that can provide a textual description;
 
 2.7. <specs_prob >
