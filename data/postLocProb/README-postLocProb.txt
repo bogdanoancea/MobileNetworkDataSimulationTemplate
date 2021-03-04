@@ -37,7 +37,7 @@ b3)	<time_end> : mandatory, it gives the value of the final time instant as a fl
 b4) <time_unit> : mandatory, it gives the value time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
 b5) <description> : an optional tag that can provide a textual description for the timestamp variable;
 
-5. It enumerates the tile IDs and its parent is <posteriorLocationProbabilities>.
+5.<specs_tile> It enumerates the tile IDs and its parent is <posteriorLocationProbabilities>.
 It contains two mandatory child elements and one optional element:
 a) <tileColName> : mandatory, it gives the column name (in the csv file) of the tile IDs;
 b) <tileID_value_type> : mandatory, it gives the data type of the tile IDs and it can be: unsignedInt, unsignedLong, nonNegativeInteger;
