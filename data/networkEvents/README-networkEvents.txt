@@ -105,5 +105,5 @@ b7) <description> : an optional tag that can provide a textual description;
 It enumerates the tile IDs and its parent is <specs_events>.
 It contains two mandatory child elements and one optional element:
 a) <tileColName> : mandatory, it gives the column name (in the csv file) of the tile IDs;
-b) <tileID_value_type> : mandatory, it give the data type of the tile IDs and it can be: unsignedInt, unsignedLong, nonNegativeInteger;
+b) <tileID_value_type> : mandatory, it gives the data type of the tile IDs and it can be: unsignedInt, unsignedLong, nonNegativeInteger;
 c) <description> : an optional tag that can provide a textual description;
