@@ -6,88 +6,63 @@ This is the outermost element, it encloses the specificatons of other elements.
 
 2. <specs_file>
 It enumerates the file names to which the definition applies, and its parent is <posteriorLocationProbabilities>.
-It contains at least 1 mandatory child element and one optional element:
-a) <fileName> : it gives the file name containing the actual data; the definition can be applied to several
-data files and this tag should be specified for each data file;
-b) <description> : an optional tag that can provide a textual description;
-
+It contains at least one mandatory child element and one optional element:
+a) <fileName> : mandatory, it gives the file name containing the actual data; the definition can be applied to several data files and this tag should be specified for each data file;
+b) <description> : an optional tag that can provide a textual description of the files;
 
 3. <specs_device>
 It enumerates the device IDs and its parent is <posteriorLocationProbabilities>.
-It contains 2 mandatory child elements and one optional element:
-a) <devColName> : it gives the column name (in the csv file) of the device IDs;
-b) <devIDValues> : it enumerates the device IDs as a list where the items are strings separated by white spaces;
+It contains two mandatory child elements and one optional element:
+a) <devColName> : mandatory, it gives the column name (in the csv file) of the device IDs;
+b) <devID_value_type> : mandatory, it gives the type of the values of the device IDs and it supports the following values: string and integer;
 c) <description> : an optional tag that can provide a textual description;
 
 4. <specs_time type=...> 
-It describes the time variable and its parent is <posteriorLocationProbabilities>.
-The attribute type can have one of the two values: "Discrete"  or "Continous".
+It describes the timestamp variable of the network events and its parent is <posteriorLocationProbabilities>.
+The attribute "type" can have one of the two values: "Discrete"  or "Continuous".
 a) type = "Discrete"
-In this case the <specs_time> element will contain the following 5 mandatory child elements and one optional element:
-a1) <timeColName> : it gives the column name (in the csv file) of the time variable;
-a2)	<time_start> : it gives the value of the initial time instant as a floating point value
-a3)	<time_end> : it gives the value of the final time instant as a floating point value
-a4) <time_increment> : it gives the value of the final time instant as a floating point value
-a5) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h
-a6) <description> : an optional tag that can provide a textual description;
+In this case the <specs_time> element will contain the following five mandatory child elements and one optional element:
+a1) <timeColName> : mandatory, it gives the column name (in the csv file) of the time variable;
+a2)	<time_start> : mandatory, it gives the value of the initial time instant as a floating point value;
+a3)	<time_end> : mandatory, it gives the value of the final time instant as a floating point value;
+a4) <time_increment> : mandatory, it gives the value of the time increment as a floating point value;
+a5) <time_unit> : mandatory, it gives the value of the time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
+a6) <description> : an optional tag that can provide a textual description for the timestamp variable;
 
-b) type = "Continous"
-In this case the <specs_time> element will contain the following 4 mandatory child elements and one optional element:
-b1) <timeColName> : it gives the column name (in the csv file) of the time variable;
-b2)	<time_start> : it gives the value of the initial time instant as a floating point value;
-b3)	<time_end> : it gives the value of the final time instant as a floating point value;
-b4) <time_unit> : it gives the value time unit and it can have of of the following values: s,m,h;
-b5) <description> : an optional tag that can provide a textual description;
+b) type = "Continuous"
+In this case the <specs_time> element will contain the following four mandatory child elements and one optional element:
+b1) <timeColName> : mandatory, it gives the column name (in the csv file) of the time variable;
+b2)	<time_start> : mandatory, it gives the value of the initial time instant as a floating point value;
+b3)	<time_end> : mandatory, it gives the value of the final time instant as a floating point value;
+b4) <time_unit> : mandatory, it gives the value time unit and it can have of of the following values: s, m, h for seconds, minutes, hours;
+b5) <description> : an optional tag that can provide a textual description for the timestamp variable;
 
-5. <specs_tile>
-It enumerates the tile IDs and its parent is <posteriorLocationProbabilities>.
-It contains 2 mandatory child elements and one optional element:
-a) <tileColName> : it gives the column name (in the csv file) of the tile IDs;
-b) <tileIDValues> : it enumerates the tile IDs as a list where the items are unsigned integers separated by white spaces;
+5. It enumerates the tile IDs and its parent is <posteriorLocationProbabilities>.
+It contains two mandatory child elements and one optional element:
+a) <tileColName> : mandatory, it gives the column name (in the csv file) of the tile IDs;
+b) <tileID_value_type> : mandatory, it gives the data type of the tile IDs and it can be: unsignedInt, unsignedLong, nonNegativeInteger;
 c) <description> : an optional tag that can provide a textual description;
 
-6. <specs_event eventType = ...>
-It describes the events captured by the network and its parent is <posteriorLocationProbabilities>.
-The attribute eventType can have one of the two values: "CellID"  or "CellIDTA". In the first case a network event is 
-represented by the ID of the cell where the mobile device was detected and in the second case, besides the ID of the cell
-the time advancing variable (TA) is also stored by the network together with the cell type (to correctly interpret the value
-of tha TA).
-
-a) eventType = "CellID"
-In this case the <specs_event> element will contain the following 2 mandatory child elements and one optional element:
-a1) <cellIDColName> : it gives the column name (in the csv file) of the cell ID;
-a2) <cellIDValues> : it enumerates the cell IDs as a list where the items are strings separated by white spaces;
-a3) <description> : an optional tag that can provide a textual description;
-
-b) eventType = "CellIDTA"
-In this case the <specs_event> element will contain the following 6 mandatory child elements and one optional element:
-b1) <cellIDColName> : it gives the column name (in the csv file) of the cell ID;
-b2) <cellIDValues> : it enumerates the cell IDs as a list where the items are strings separated by white spaces;
-b3) <TAColName> : it gives the column name (in the csv file) of the TA variable;
-b4) <TAValues> : it enumerates the TA values as a list where the items are strings separated by white spaces;
-b5) <cellTypeColName> : it gives the column name (in the csv file) of the cell type variable;
-b6) <cellTypeValues> : it enumerates the possible values for the cell type; the only valid values are "3G" or "4G";
-b7) <description> : an optional tag that can provide a textual description;
-
-7. <specs_prob >
-It describes the method used to compute the location probabilities of the devices 
-and its parent is <posteriorLocationProbabilities>.
-It contains 2 mandatory child elements and one optional element:
-a) <probColName> : it gives the column name (in the csv file) of the location probability;
-b) <method name =...>
+6. <specs_cells> It specifies the cell ID where the mobile device was detected at certain time instant and its parent is <posteriorLocationProbabilities>.
+It contains two mandatory child elements and one optional elements.
+a) <cellIDColName> : mandatory, it gives the cell ID where the mobile device was detected;
+b) <cellID_value_type> : mandatory, it the data type of the cell IDs and it can be string or integer;
 c) <description> : an optional tag that can provide a textual description;
 
-The <method> element describes  the used to compute the location probabilities of the mobile devices.
-The attribute name could have one of the two following values: "HMM" or "StaticBayes".
-
+7. <specs_prob> It describes the method used to compute the  location probabilities of the devices and its parent is <posteriorLocationJointProbabilities>.
+It contains two mandatory child elements and one optional element:
+a) <probColName> : mandatory, it gives the column name (in the csv file) of the  location probability;
+b) <method name =...> : mandatory, it gives the method used to compute the  location probabilities. The attribute "name" could have one of the two following values: "HMM" or "StaticBayes".
 b1) name = "HMM"
-In this case the <method> element will contain the following 3 mandatory child elements and one optional element:
-b11) <prior> : it gives the priors used to compute the location probabilities and it could have one of the following two values: "network" or "uniform";
-b12) <transition> : it gives the transition model used by the HMM and currently could have onnly a single value: "rectangle";
-b13) <emission> : it gives the method used to compute to emmision probabilities of the HMM and it could haveone of the two following values: "RSS" or "SDM";
+In this case the <method> element will contain the following three mandatory child elements and one optional element:
+b11) <prior> : mandatory, it gives the priors used to compute the location probabilities and it could have one of the following two values: "network" or "uniform";
+b12) <transition> : mandatory, it gives the transition model used by the HMM and currently could have only a single value: "rectangle";
+b13) <emission> : mandatory, it gives the method used to compute to emmision probabilities of the HMM and it could have one of the two following values: "RSS" or "SDM";
 b14) <description> : an optional tag that can provide a textual description
 
 b2) name = "StaticBayes"
 In this case the <method> element will contain the one mandatory child element and one optional element:
-b21) <prior> : it gives the priors used to compute the location probabilities and it could have one of the following two values: "network" or "uniform";
+b21) <prior> : mandatory, it gives the priors used to compute the joint location probabilities and it could have one of the following two values: "network" or "uniform";
 b22) <description> : an optional tag that can provide a textual description;
+
+c) <description> : an optional tag that can provide a textual description;
